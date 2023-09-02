@@ -24,11 +24,35 @@ const salesmenData = {
         abrev: "RB",
         iconPath: './assets/icons/richard.png'
     },
+    Dan: {
+        email: "dan.harding@gak.co.uk",
+        phone: "01273 665406",
+        abrev: "DH",
+        iconPath: './assets/icons/dan-harding.png'
+    },
+    Jules: {
+        email: "jules.monk@gak.co.uk",
+        phone: "01273 665408",
+        abrev: "JM",
+        iconPath: './assets/icons/jules.png'
+    },
+    Reif: {
+        email: "james.hunter@gak.co.uk",
+        phone: "01273 665",
+        abrev: "RB",
+        iconPath: './assets/icons/james-hunter.png'
+    },
     Jack: {
         email: "jack.breeze-lamb@gak.co.uk",
         phone: "01273 665420",
         abrev: "JBL",
-        iconPath: './assets/icons/jack.png'
+        iconPath: './assets/icons/jack-breeze-lamb.png'
+    },
+    Education: {
+        email: "edu@gak.co.uk",
+        phone: "01273 665410",
+        abrev: "EDU",
+        iconPath: './assets/icons/edu.png'
     },
     GuitarShop: {
         email: "guitarshop@gak.co.uk",
@@ -189,17 +213,22 @@ function updateEmailPreview() {
     const faultType = document.getElementById('fault-type').value;
     const stockDate = document.getElementById('stockDate').value;
     const salesRef = document.getElementById('salesRef').value;
+    const paymentLink = document.getElementById('paymentLink').value;
+
 
     // Define a mapping of template names to headlines
     const templateHeadlines = {
+        paymentLink: `GAK - Payment Link - ${product}`,
+        paymentLink2: `GAK - Payment Link - ${product}`,
         webQuote: `👋 ${name}, GAK has sent you an offer!`,
         webQuote2: `👋 ${name}, GAK has sent you an offer!`,
         webQuote3: `👋 ${name}, GAK has sent you an offer!`,
         bestPrice: `GAK - Best Price - ${product}!`,
+        webReturn: `GAK Web Return - ${returnNumber}`,
         unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
-        stockNotification: `GAK Stock Notification - ${product}`,
+        stockNotification: `GAK Stock Notification - ${product}`
     };
 
     // Set a default headline of "GAK" for templates without a specific headline
@@ -248,7 +277,8 @@ function updateEmailPreview() {
         'returnNumber': returnNumber,
         'fault-type': faultType, 
         'stockDate': stockDate,
-        'salesRef': `Q-${salesmanData.abrev}-${salesRef}` // Construct the quote reference
+        'salesRef': `Q-${salesmanData.abrev}-${salesRef}`, // Construct the quote reference
+        'paymentLink': paymentLink,
     };
 
     // Fill the template with data
@@ -447,7 +477,7 @@ function closePopup() {
 // Function to check the entered password
 function checkPassword() {
     const enteredPassword = passwordInput.value;
-    const correctPassword = ''; // Replace with your desired password
+    const correctPassword = 'gak1234'; // Replace with your desired password
 
     if (enteredPassword === correctPassword) {
         // Password is correct, close the popup
@@ -461,6 +491,42 @@ function checkPassword() {
 
 function getEmailTemplate(templateName) {
     const templates = {
+
+        paymentLink: `Hi {{name}},
+
+You can follow the link below to complete your purchase.
+
+{{paymentLink}}
+
+Please respond to this email and let me know once this is complete. 
+
+<em>Please also ensure you fill out the appropriate fields for an alternative delivery address if you intend to send it somewhere other than your billing address. If you are using Paypal, double check your address is up to date.</em>
+
+You can reach me via email at {{salesman-email}}, or on {{salesman-phone}} if any issues.
+
+Kind regards,
+{{salesman}}
+GAK
+
+`,
+
+paymentLink2: `Hi {{name}},
+
+You can follow the link below to complete your purchase of the <b>{{product}}</b>, your reference is {{salesRef}}.
+
+{{paymentLink}}
+
+Please respond to this email and let me know once this is complete. 
+
+<em>Please also ensure you fill out the appropriate fields for an alternative delivery address if you intend to send it somewhere other than your billing address. If you are using Paypal, double check your address is up to date.</em>
+
+You can reach me via email, or on {{salesman-phone}} if any issues.
+
+Kind regards,
+{{salesman}}
+GAK
+
+`,
 
         webQuote: `Hi {{name}},
 
@@ -482,7 +548,11 @@ We also offer great finance options over the phone if that is the way that you i
 
 If you are interested, you can call me direct on {{salesman-phone}} between 11.30-5.3pm, or call the main 01273 665400 on the site and ask for {{salesman}}. Alternatively you can email me at {{salesman-email}}. 
 
-If not, please disregard this email and have a great week!`,
+If not, please disregard this email and have a great week!
+
+Kind regards,
+{{salesman}}
+GAK`,
 
 
         webQuote3: `Hi {{name}},
@@ -506,6 +576,23 @@ Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or emai
 Kind Regards,
 {{salesman}}
 GAK`,
+
+        webReturn: `Hi {{name}},
+
+Please send the items you wish to return back to the below address. Ideally, each item will need to be returned with all the original packaging and any other items included in the box such as a power supply or any documentation. Please ensure the package is wrapped and/or double boxed for transit to protect the manufacturers packaging against damage. Please do not write on or mark the manufacturers packaging. When appropriate we advise using a service that offers insurance, tracking and a signature upon receipt. We have no preference which courier service you use.
+
+<b>({{returnNumber}})
+GAK Returns
+60 Gladstone Place
+Brighton
+BN2 3QD</b>
+
+From the date of receipt of this email you have 14 days in which to return the goods. Please allow up to 7 days for the refund to be processed. Our Returns Dept. will send you a confirmation email as soon as the refund is processed. Please allow up to 7 days for you bank to clear the funds from that point. Please be aware that we can no longer offer collections for unwanted orders and do not reimburse the cost of returns postage.
+
+Please be aware that if any item cannot be restocked as new we may need to reduce your refund total to reflect any depreciation in the value of the goods. Please see the terms and conditions on our website (link here www.gak.co.uk/en/terms-and-conditions) for more information.
+
+Kind Regards,
+{{salesman}}`,
 
         unwantedReturn: `Hi {{name}},
 
