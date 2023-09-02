@@ -239,11 +239,11 @@ function updateEmailPreview() {
         subjectHeadline = templateHeadlines[template];
     }
 
-    // Now, you can use the subjectHeadline variable in your email preview or wherever needed
+    // Use the subjectHeadline variable in the email preview or wherever needed
     document.getElementById('email-headline').textContent = subjectHeadline;
 
     
-    // Always set the email headline based on the selected template
+    // Set the email headline based on the selected template
     const emailHeadline = templateHeadlines[template];
     document.getElementById('email-headline').textContent = emailHeadline;
 
@@ -466,7 +466,7 @@ window.addEventListener('load', function () {
 // Add an event listener to the form's submit event
 document.getElementById('passwordForm').addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent the default form submission behavior
-    checkPassword(); // Call your password-checking function
+    checkPassword(); // Call the password-checking function
 });
 
 // Function to close the popup
@@ -477,7 +477,7 @@ function closePopup() {
 // Function to check the entered password
 function checkPassword() {
     const enteredPassword = passwordInput.value;
-    const correctPassword = 'lespaul'; // Replace with your desired password
+    const correctPassword = 'lespaul'; // Yes, I know this isn't hidden. Well found. 
 
     if (enteredPassword === correctPassword) {
         // Password is correct, close the popup

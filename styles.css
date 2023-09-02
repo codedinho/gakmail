@@ -1,22 +1,20 @@
-
 /* Center-align the page title */
 h1 {
     text-align: center;
     font-family: 'Staatliches', cursive;
 }
 
+/* Logo container styles */
 #logo-container {
-    position: absolute; /* Use fixed positioning to keep it at the top of the page */
+    position: absolute; /* Keep it at the top of the page */
     top: 0;
-    left: 50%; /* Move it to the horizontal center */
+    left: 50%; /* Center it horizontally */
     transform: translateX(-50%); /* Center it horizontally */
     margin-bottom: 10px;
-    z-index: 1000; /* Ensure it's above other elements if necessary */
-    margin-top: 11px;
-    z-index: 1;
+    z-index: 1; /* Ensure it's above other elements if necessary */
 }
 
-/* Style the form container */
+/* Form container styles */
 .form-container {
     max-width: 641px;
     margin: 0 auto;
@@ -28,7 +26,7 @@ h1 {
     margin-bottom: 50px;
 }
 
-/* Style labels */
+/* Label styles */
 label {
     display: block;
     margin-top: 10px;
@@ -38,7 +36,7 @@ label {
     font-size: 20px;
 }
 
-/* CSS for styling all dropdowns */
+/* Common styles for dropdowns */
 .dropdown-style {
     width: 100%;
     height: 48px;
@@ -54,8 +52,7 @@ label {
     line-height: 35px;
 }
 
-
-/* Style input fields and select boxes */
+/* Input fields and select boxes styles */
 input[type="text"],
 select {
     width: 100%;
@@ -70,7 +67,7 @@ select {
     font-size: 14px;
 }
 
-/* Add this to your CSS stylesheet */
+/* Styled input styles */
 .styled-input {
     width: 100%;
     padding: 10px;
@@ -84,24 +81,11 @@ select {
     text-align: left;
     line-height: 30px;
     font-weight: 600;
-    overflow: hidden; /* Add this line to hide overflow without scrollbars */
+    overflow: hidden; /* Hide overflow without scrollbars */
 }
 
 .input-container {
     margin-bottom: 20px;
-}
-
-.styled-input {
-    width: 100%; /* Adjust width as needed */
-    height: 48px;
-    padding: 10px;
-    padding-left: 10px;
-    border-radius: 4px;
-    background-color: #ffffff;
-    font-family: 'Arial', cursive;
-    font-size: 14px;
-    color: #333;
-    display: inline-block; /* Added */
 }
 
 .input-with-button {
@@ -110,11 +94,12 @@ select {
     align-items: center;
 }
 
+/* Copy button styles */
 .copy-button {
-    width: 100px; /* Adjust width as needed */
+    width: 100px;
     height: 48px;
     background-color: rgb(219, 51, 51);
-    color: #ffffff; /* Button text color */
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -126,23 +111,19 @@ select {
 .copy-button:hover {
     background-color: rgb(255, 145, 145);
     color: #ffffff;
-    outline-width: 3px;}
-
-
-#generate-email:hover {
-    background-color: #0056b3;
+    outline-width: 3px;
 }
 
-/* Style the email preview container */
+/* Email preview container styles */
 .email-preview {
     margin: 20px auto;
-    padding: 15px 15px 15px 15px;
+    padding: 15px;
     border-radius: 5px;
     background-color: #fff;
     width: 100%;
     max-width: 641px;
     box-sizing: border-box;
-    position: relative; /* Add relative positioning to create a positioning context */
+    position: relative;
 }
 
 .email-preview h2 {
@@ -151,30 +132,32 @@ select {
     font-family: 'Staatliches', cursive;
 }
 
-/* Style email content */
+/* Email content styles */
 #email-content {
     font-size: 13px;
     line-height: 1.5;
     color: #000000;
     font-family: 'Arial', cursive;
-    overflow: hidden; /* Add this line to hide overflow without scrollbars */
+    overflow: hidden;
 }
 
+/* Button container styles */
 .button-container {
-    position: relative; /* Set the button's position to absolute */
-    bottom: 90%; /* Adjust the positioning within the email container */
-    right: 35%; /* Adjust the positioning within the email container */
-    /* Other styles for the button container */
+    position: relative;
+    bottom: 90%;
+    right: 35%;
 }
 
+/* Container styles */
 #container {
-    position: relative; /* Ensure the container is a positioned parent */
+    position: relative; 
 }
 
+/* Copy button styles */
 #copy-button {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the button both horizontally and vertically */
+    transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
     background-color: rgb(219, 51, 51);
@@ -196,15 +179,14 @@ select {
     background-color: rgb(255, 145, 145);
     color: #ffffff;
     outline-width: 3px;
-
 }
 
-/* CSS for the "Copied!" message */
+/* Copied message styles */
 #copiedMessage {
     position: fixed;
-    top: 8%; /* Adjust the distance from the bottom as needed */
+    top: 8%;
     left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
+    transform: translateX(-50%);
     background-color: rgba(0, 0, 0);
     color: #fff;
     padding: 5px 10px;
@@ -212,15 +194,14 @@ select {
     font-family: 'Staatliches', cursive;
     text-align: center;
     font-size: 18px;
-
 }
 
-/* CSS for the "Email Copied" message */
+/* Email Copied message styles */
 #emailCopiedMessage {
     position: fixed;
-    top: 8%; /* Adjust the distance from the top as needed */
+    top: 8%;
     left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
+    transform: translateX(-50%);
     background-color: rgba(0, 0, 0);
     color: #fff;
     padding: 5px 10px;
@@ -230,46 +211,43 @@ select {
     font-size: 18px;
 }
 
+/* Subject headline container styles */
 .subject-headline-container {
     margin-top: 40px;
     text-align: center;
     font-size: 20px;
-  }
-  
+}
 
-/* Add animation or transition effects for better user experience */
+/* Hidden element style */
 .hidden {
     display: none;
 }
 
-/* Style for the label */
+/* Label style for "stockDate" */
 label[for="stockDate"] {
     display: block;
-    margin-bottom: 10px; /* Adjust as needed for spacing */
-  }
+    margin-bottom: 10px;
+}
 
-
-
-/* Style for the icon image (for mobile) */
+/* Player icon image styles (for mobile) */
 #player-icon-image {
     max-width: 100%;
     max-height: 100%;
     display: block;
 }
 
-
+/* Email container styles */
 #email-container {
     position: relative;
     max-width: 641px;
     margin: 0 auto;
 }
 
-
-/* Style for the player icon (for both mobile and screens) */
+/* Player icon styles (for both mobile and screens) */
 #player-icon {
     position: fixed;
-    bottom: 10px; /* Adjust as needed for the vertical position */
-    right: 10px; /* Adjust as needed for the horizontal position */
+    bottom: 10px; 
+    right: 10px; 
     width: 80px;
     height: 80px;
     background-color: #f0f0f0;
@@ -279,40 +257,31 @@ label[for="stockDate"] {
 }
 
 #player-icon:hover {
-    transform: scale(1.2); /* Increase the scale factor for larger size */
-    transition: transform 0.3s ease; /* Add a smooth transition effect */
+    transform: scale(1.2); 
+    transition: transform 0.3s ease; 
 }
 
-#player-icon-image {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-}
-
-/* Tooltip style */
+/* Tooltip styles */
 #tooltip {
     position: fixed;
     bottom: 12%;
-    right: 0%; /* Adjust the distance from the icon */
+    right: 0%;
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     border-radius: 5px;
     white-space: nowrap;
-    display: none; /* Initially hide the tooltip */
+    display: none;
     font-size: 20px;
     font-family: 'Staatliches', cursive;
-
 }
-
 
 /* Show tooltip on hover */
 #tooltip::after {
     display: block;
 }
 
-/* Styles for the popup */
-/* Styles for the popup */
+/* Popup styles */
 .popup {
     display: none;
     position: fixed;
@@ -333,18 +302,18 @@ label[for="stockDate"] {
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    z-index: 10000; /* Ensure the popup content is above the blurred background */
+    z-index: 10000; 
 }
 
 /* Center the popup and apply a blur filter to the background when the popup is displayed */
 .popup.show {
     display: flex;
-    backdrop-filter: blur(10px); /* Adjust the blur strength as needed */
-    background: rgba(0, 0, 0, 0.9); /* Background color with opacity */
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
 }
 
-/* Style for the password input */
+/* Password input styles */
 .popup-content input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -356,11 +325,11 @@ label[for="stockDate"] {
     color: #333;
 }
 
-/* Style for the submit button */
+/* Submit button styles */
 .popup-content button[type="submit"] {
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Change to your desired button color */
+    background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -371,16 +340,7 @@ label[for="stockDate"] {
     font-family: 'Staatliches', cursive;
 }
 
+/* Submit button hover styles */
 .popup-content button[type="submit"]:hover {
-    background-color: #000000; /* Change to the hover color */
+    background-color: #000000;
 }
-
-
-
-
-
-
-
-
-
-  

@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Template Generator</title>
+
+    <!-- Stylesheets and fonts -->
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
 </head>
-<!-- Favicon -->
-<link rel="icon" type="image/png" href="./assets/icons/favicon.png">
-<div id="popup" class="popup">
-    <div class="popup-content">
-        <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
-        <p>Please enter the password to continue:</p>
-        <form id="passwordForm">
-            <!-- Use type="password" for the password input -->
-            <input type="password" id="passwordInput" placeholder="Password">
-            <button type="submit">Submit</button>
-        </form>
-    </div>
-</div>
 <body>
+    <!-- Popup for password input -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <!-- Logo -->
+            <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
+
+            <!-- Password input form -->
+            <p>Please enter the password to continue:</p>
+            <form id="passwordForm">
+                <!-- Password input field -->
+                <input type="password" id="passwordInput" placeholder="Password">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Logo container -->
     <div id="logo-container">
         <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
     </div>
-    <div class="form-container">
-        
+
+    <!-- Form container -->
+    <div class="form-container">     
+        <!-- Salesman dropdown -->
         <label for="salesman">Select Salesman:</label>
         <select id="salesman">
-        </select>
-        
+        </select>      
+
+        <!-- Template dropdown -->
         <label for="template">Select Template:</label>
         <select id="template">
             <option value="paymentLink">Payment Link #1</option>
@@ -46,58 +59,65 @@
             <option value="stockNotification">Stock Notification</option>
         </select>
 
+        <!-- Customer information inputs -->
         <label for="name">Customer Name:</label>
-        <input type="text" id="name" placeholder="Enter Name">
-        
+        <input type="text" id="name" placeholder="Enter Name">   
         <label for="product">Product:</label>
-        <input type="text" id="product" placeholder="Enter Product">
-        
+        <input type="text" id="product" placeholder="Enter Product">    
         <label for="bestPrice">Best Price:</label>
-        <input type="text" id="bestPrice" placeholder="Enter Best Price">
-        
+        <input type="text" id="bestPrice" placeholder="Enter Best Price">     
         <label for="returnNumber">Return Number:</label>
-        <input type="text" id="returnNumber" placeholder="Enter Return Number">
-        
+        <input type="text" id="returnNumber" placeholder="Enter Return Number">      
         <label for="salesRef">Quote Reference:</label>
-        <input type="text" id="salesRef" placeholder="Enter Quote Reference">
-        
+        <input type="text" id="salesRef" placeholder="Enter Quote Reference">       
         <label for="stockDate">Stock Due:</label>
         <input type="text" id="stockDate" placeholder="Enter Stock Due Date">
-
         <label for="paymentLink">Payment Link:</label>
-        <input type="text" id="paymentLink" placeholder="Enter Link URL">
-        
+        <input type="text" id="paymentLink" placeholder="Enter Link URL">       
+
+        <!-- Fault Type dropdown -->
         <label for="fault-type">Fault Type:</label>
         <select id="fault-type">
             <option value="is faulty">Faulty</option>
-            <option value="has some cosmetic flaws">Cosmetic Damage</option>
-            <option value="does not appear to be as new">Signs Of Usage</option>
+            <!-- More fault type options here -->
         </select>
-        
 
+        <!-- Subject headline and copy button -->
         <div class="subject-headline-container">
             <label for="email-headline">Suggested Subject Headline:</label>
             <div class="input-with-button">
-              <div id="email-headline" class="styled-input">Your Email Headline</div>
-              <button class="copy-button" onclick="copyEmailHeadline()">Copy</button>
+                <!-- Email headline display -->
+                <div id="email-headline" class="styled-input">Your Email Headline</div>
+                <!-- Copy button for the email headline -->
+                <button class="copy-button" onclick="copyEmailHeadline()">Copy</button>
             </div>
+            <!-- Email copied message -->
             <div id="emailCopiedMessage" class="email-copied-message hidden">
-              Subject Headline Copied
+                Subject Headline Copied
             </div>
-          </div>
-        
-        
-        <div id="email-container">
-            <div id="email-content" class="email-preview"></div>
-                <div id="copy-button">COPY</div>
-            </div>      
-            <div id="player-icon">
-                <img id="player-icon-image" src="" alt="">
-            </div>                          
         </div>
+
+        <!-- Email container -->
+        <div id="email-container">
+            <!-- Email content display -->
+            <div id="email-content" class="email-preview"></div>
+            <!-- Copy button for the email content -->
+            <div id="copy-button">COPY</div>
+        </div>
+
+        <!-- Player icon -->
+        <div id="player-icon">
+            <img id="player-icon-image" src="" alt="">
+        </div>
+
+        <!-- Copied message for email content -->
         <div id="copiedMessage" class="hidden">Email Copied</div>
+
+        <!-- Tooltip -->
         <div id="tooltip" class="hidden">Alright mate</div>
+    </div>
+
+    <!-- JavaScript file -->
     <script src="script.js"></script>
-    
 </body>
 </html>
