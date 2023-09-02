@@ -13,6 +13,10 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+
+    <!-- PDF Loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 </head>
 <body>
     <!-- Popup for password input -->
@@ -48,6 +52,7 @@
         <select id="template">
             <option value="paymentLink">Payment Link #1</option>
             <option value="paymentLink2">Payment Link #2</option>
+            <option value="stockNotification">Stock Notification</option>
             <option value="webQuote">Web Quote #1</option>
             <option value="webQuote2">Web Quote #2</option>
             <option value="webQuote3">Web Quote #3</option>
@@ -56,7 +61,6 @@
             <option value="unwantedReturn">Return - Unwanted</option>
             <option value="faultyReturn">Return - Faulty</option>
             <option value="warrantyRepair">Warranty Repair</option>
-            <option value="stockNotification">Stock Notification</option>
         </select>
 
         <!-- Customer information inputs -->
@@ -101,6 +105,8 @@
         <div id="email-container">
             <!-- Email content display -->
             <div id="email-content" class="email-preview"></div>
+            <!-- PDF Button Downloader -->
+            <a id="downloadButton" style="display: none;" href="./assets/PDF/packing-guide.pdf" download="packing-guide.pdf">Download Packaging Guide</a>
             <!-- Copy button for the email content -->
             <div id="copy-button">COPY</div>
         </div>

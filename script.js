@@ -288,6 +288,37 @@ function updateEmailPreview() {
     
 }
 
+// Assuming your select element has the id "template"
+const templateSelect = document.getElementById("template");
+
+templateSelect.addEventListener("change", function () {
+    const selectedTemplate = templateSelect.value;
+
+    // Check if the selected template matches any of the three templates
+    if (
+        selectedTemplate === "webReturn" ||
+        selectedTemplate === "unwantedReturn"
+    ) {
+        // Show the "Download PDF" button
+        document.getElementById("downloadButton").style.display = "block";
+    } else {
+        // Hide the button for other templates
+        document.getElementById("downloadButton").style.display = "none";
+    }
+});
+
+function downloadPDF() {
+    // Set the href attribute to the path of your PDF file
+    document.getElementById("downloadButton").setAttribute("href", "./assets/PDF/packing-guide.pdf");
+
+    // Set the download attribute to specify the default filename
+    document.getElementById("downloadButton").setAttribute("download", "packing-guide.pdf");
+}
+
+
+
+
+
 // Function to hide unused fields based on the selected template
 function hideUnusedFields(templateName) {
     const inputElements = document.querySelectorAll('input[type="text"]');
