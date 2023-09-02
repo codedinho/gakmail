@@ -477,7 +477,7 @@ function closePopup() {
 // Function to check the entered password
 function checkPassword() {
     const enteredPassword = passwordInput.value;
-    const correctPassword = 'gak1234'; // Replace with your desired password
+    const correctPassword = 'lespaul'; // Replace with your desired password
 
     if (enteredPassword === correctPassword) {
         // Password is correct, close the popup
