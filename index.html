@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Template Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
+        <p>Please enter the password to continue:</p>
+        <form id="passwordForm">
+            <!-- Use type="password" for the password input -->
+            <input type="password" id="passwordInput" placeholder="Password">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+<body>
+    <div id="logo-container">
+        <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
+    </div>
+    <div class="form-container">
+        
+        <label for="salesman">Select Salesman:</label>
+        <select id="salesman">
+        </select>
+        
+        <label for="template">Select Template:</label>
+        <select id="template">
+            <option value="webQuote">Web Quote #1</option>
+            <option value="webQuote2">Web Quote #2</option>
+            <option value="webQuote3">Web Quote #3</option>
+            <option value="bestPrice">Best Price</option>
+            <option value="unwantedReturn">Return - Unwanted</option>
+            <option value="faultyReturn">Return - Faulty</option>
+            <option value="warrantyRepair">Warranty Repair</option>
+            <option value="stockNotification">Stock Notification</option>
+        </select>
+
+        <label for="name">Customer Name:</label>
+        <input type="text" id="name" placeholder="Enter Name">
+        
+        <label for="product">Product:</label>
+        <input type="text" id="product" placeholder="Enter Product">
+        
+        <label for="bestPrice">Best Price:</label>
+        <input type="text" id="bestPrice" placeholder="Enter Best Price">
+        
+        <label for="returnNumber">Return Number:</label>
+        <input type="text" id="returnNumber" placeholder="Enter Return Number">
+        
+        <label for="salesRef">Quote Reference:</label>
+        <input type="text" id="salesRef" placeholder="Enter Quote Reference">
+        
+        <label for="stockDate">Stock Due:</label>
+        <input type="text" id="stockDate" placeholder="Enter Stock Due Date">
+        
+        
+        <label for="fault-type">Fault Type:</label>
+        <select id="fault-type">
+            <option value="is faulty">Faulty</option>
+            <option value="has some cosmetic flaws">Cosmetic Damage</option>
+            <option value="does not appear to be as new">Signs Of Usage</option>
+        </select>
+        
+
+        <div class="subject-headline-container">
+            <label for="email-headline">Suggested Subject Headline:</label>
+            <div class="input-with-button">
+              <div id="email-headline" class="styled-input">Your Email Headline</div>
+              <button class="copy-button" onclick="copyEmailHeadline()">Copy</button>
+            </div>
+            <div id="emailCopiedMessage" class="email-copied-message hidden">
+              Subject Headline Copied
+            </div>
+          </div>
+        
+        
+        <div id="email-container">
+            <div id="email-content" class="email-preview"></div>
+                <div id="copy-button">COPY</div>
+            </div>      
+            <div id="player-icon">
+                <img id="player-icon-image" src="" alt="">
+            </div>                          
+        </div>
+        <div id="copiedMessage" class="hidden">Email Copied</div>
+        <div id="tooltip" class="hidden">Alright mate</div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
