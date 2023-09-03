@@ -218,7 +218,7 @@ function updateEmailPreview() {
 
     // Define a mapping of template names to headlines
     const templateHeadlines = {
-        paymentLink: `GAK - Payment Link - ${product}`,
+        paymentLink: `GAK - Payment Link`,
         paymentLink2: `GAK - Payment Link - ${product}`,
         webQuote: `👋 ${name}, GAK has sent you an offer!`,
         webQuote2: `👋 ${name}, GAK has sent you an offer!`,
