@@ -257,7 +257,7 @@ function updateEmailPreview() {
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
         stockNotificationGibson: `GAK Stock Notification - ${product}`,
-        callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone} - ${orderNumber}`
+        callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`
     };
 
     // Set a default headline of "GAK" for templates without a specific headline
@@ -761,6 +761,8 @@ GAK`,
 {{name}} {{callbackType}} {{product}}.
 
 You can reach them on {{customerPhone}} or email them at {{customerEmail}}.
+
+In the absence of {{callbackSalesman}}, please can the relevant department chase this on up.
 
 Order Number: {{orderNumber}}
 

@@ -47,7 +47,7 @@
     <!-- Form container -->
     <div class="form-container">     
         <!-- Salesman dropdown -->
-        <label for="salesman">Select Salesman:</label>
+        <label for="salesman">Select User</label>
         <select id="salesman">
         </select>   
 
@@ -69,12 +69,9 @@
             <option value="callbackType">CECB Group</option>
         </select>
 
-        <label for="orderNumber">Order Number:</label>
-        <input type="text" id="orderNumber" placeholder="Enter Order Reference"> 
-
-        <label for="callbackType">Callback Type:</label>
+        <label for="callbackType">Customer Request:</label>
         <select id="callbackType">
-            <option value="would like a call back about the">Callback</option>
+            <option value="would like a call back about the">Call Back</option>
             <option value="would like an email update about the">Email Update</option>
             <option value="would like a status update on the repair of his">Repair Update</option>
             <option value="is looking to place a deposit on the">Reserve & Collect</option>
@@ -84,6 +81,12 @@
             <option value="is looking for a suitable alternative to the">Product Alternative</option>
             <option value="is looking to sell his">Part-Exchange</option>
         </select>
+
+        <label for="callbackSalesman">FAO:</label>
+        <select id="callbackSalesman"></select>    
+        
+        <label for="orderNumber">Order Number:</label>
+        <input type="text" id="orderNumber" placeholder="Enter Order Reference"> 
 
         <!-- Customer information inputs -->
         <label for="name">Customer Name:</label>
@@ -111,10 +114,7 @@
             <option value="is faulty">Faulty</option>
             <option value="has some cosmetic damage">Cosmetic Damage</option>
             <option value="does not seem to be as new">Signs of Use</option>
-        </select>
-
-        <label for="callbackSalesman">Callback Salesman:</label>
-        <select id="callbackSalesman"></select>     
+        </select> 
 
         <!-- Subject headline and copy button -->
         <div class="subject-headline-container">
