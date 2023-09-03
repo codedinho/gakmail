@@ -15,7 +15,7 @@ body {
 
     /* Apply a heavy blur and opacity */
     filter: blur(20px);
-    opacity: 0.5;
+    opacity: 0.3;
 
     /* Ensure the background covers the entire viewport */
     position: fixed;
@@ -47,7 +47,7 @@ body {
     margin-top: 50px;
     padding: 20px;
     border-radius: 5px;
-    background-color: rgba(255, 213, 27, 0.85);
+    background-color: rgba(255, 213, 27, 0.9);
     font-family: 'Staatliches', cursive;
     margin-bottom: 50px;
 }
