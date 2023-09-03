@@ -285,7 +285,6 @@ function updateEmailPreview() {
     const emailContent = fillTemplate(emailTemplate, data);
 
     document.getElementById('email-content').innerHTML = emailContent.replace(/\n/g, '<br>');
-    
 }
 
 // Assuming your select element has the id "template"
@@ -520,6 +519,7 @@ function checkPassword() {
     }
 }
 
+
 function getEmailTemplate(templateName) {
     const templates = {
 
@@ -577,7 +577,7 @@ Great choice! Just letting you know that there is possibly a small discount or f
     
 We also offer great finance options over the phone if that is the way that you intend to go (unfortunately only at our advertised prices for 0% finance, though I may either have some extra options not listed or I may be able to throw in some freebies!).
 
-If you are interested, you can call me direct on {{salesman-phone}} between 11.30-5.3pm, or call the main 01273 665400 on the site and ask for {{salesman}}. Alternatively you can email me at {{salesman-email}}. 
+If you are interested, you can call me direct on {{salesman-phone}} between 11.30-5.30pm, or call the main 01273 665400 on the site and ask for {{salesman}}. Alternatively you can email me at {{salesman-email}}. 
 
 If not, please disregard this email and have a great week!
 
