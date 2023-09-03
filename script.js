@@ -293,7 +293,7 @@ function updateEmailPreview() {
         callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
         callbackType2: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
         callbackType3: `Callback for ${callbackSalesman} - Order Update - ${orderNumber}`,
-        callbackType4: `Callback for ${callbackSalesman} - Return Update - ${returnNumber}`
+        callbackType4: `Callback for ${callbackSalesman} - Return Update - RM${returnNumber}`
     };
 
     // Set a default headline of "GAK" for templates without a specific headline
@@ -829,7 +829,7 @@ Cheers,
 
 Please call on {{customerPhone}} or email them at {{customerEmail}}.
 
-Return Number: <a href="https://admin.gak.co.uk/StockreturnItems/Edit/{{returnNumber}}" target="_blank">{{returnNumber}}</a>
+Return Number: RM-<a href="https://admin.gak.co.uk/StockreturnItems/Edit/{{returnNumber}}" target="_blank">{{returnNumber}}</a>
 
 Cheers,
 
