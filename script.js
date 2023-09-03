@@ -80,6 +80,25 @@ const salesmenData = {
     }
 };
 
+// Select the <select> element by its ID
+const callbackSalesmanSelect = document.getElementById('callbackSalesman');
+
+// Loop through the salesmenData object to populate the <select> element
+for (const salesman in salesmenData) {
+    if (salesmenData.hasOwnProperty(salesman)) {
+        // Create an <option> element
+        const option = document.createElement('option');
+        
+        // Set the text and value of the <option>
+        option.textContent = salesman;
+        option.value = salesman;
+        
+        // Append the <option> to the <select>
+        callbackSalesmanSelect.appendChild(option);
+    }
+}
+
+
 // Call the function to generate the icons on page load
 window.addEventListener('load', function () {
     updateEmailPreview(); // Call updateEmailPreview on page load
@@ -129,7 +148,10 @@ playerIconImage.src = salesmenData['Charlie'].iconPath;
 // Get references to your dropdown elements
 const salesmanDropdown = document.getElementById('salesman');
 const templateDropdown = document.getElementById('template');
-const faultTypeDropdown = document.getElementById('fault-type');
+const faultTypeDropdown = document.getElementById('faultType');
+const callbackType = document.getElementById('callbackType');
+const callbackSalesman = document.getElementById('callbackSalesman');
+
 
 // Add more dropdowns if needed
 
@@ -210,10 +232,15 @@ function updateEmailPreview() {
     const product = document.getElementById('product').value;
     const bestPrice = document.getElementById('bestPrice').value;
     const returnNumber = document.getElementById('returnNumber').value;
-    const faultType = document.getElementById('fault-type').value;
+    const faultType = document.getElementById('faultType').value;
     const stockDate = document.getElementById('stockDate').value;
     const salesRef = document.getElementById('salesRef').value;
     const paymentLink = document.getElementById('paymentLink').value;
+    const callbackType = document.getElementById('callbackType').value;
+    const callbackSalesman = document.getElementById('callbackSalesman').value;
+    const customerEmail = document.getElementById('customerEmail').value;
+    const customerPhone = document.getElementById('customerPhone').value;
+    const orderNumber = document.getElementById('orderNumber').value;
 
 
     // Define a mapping of template names to headlines
@@ -229,7 +256,8 @@ function updateEmailPreview() {
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
-        stockNotificationGibson: `GAK Stock Notification - ${product}`
+        stockNotificationGibson: `GAK Stock Notification - ${product}`,
+        callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone} - ${orderNumber}`
     };
 
     // Set a default headline of "GAK" for templates without a specific headline
@@ -276,10 +304,15 @@ function updateEmailPreview() {
         'salesman-email': salesmanData.email,
         'bestPrice': bestPrice,
         'returnNumber': returnNumber,
-        'fault-type': faultType, 
+        'orderNumber': orderNumber,
+        'faultType': faultType,  
         'stockDate': stockDate,
         'salesRef': `Q-${salesmanData.abrev}-${salesRef}`, // Construct the quote reference
         'paymentLink': paymentLink,
+        'callbackType': callbackType,
+        'callbackSalesman': callbackSalesman,
+        'customerEmail': customerEmail,
+        'customerPhone': customerPhone
     };
 
     // Fill the template with data
@@ -657,7 +690,7 @@ GAK`,
 
         faultyReturn: `Hi {{name}},
 
-I'm sorry to hear your {{product}} {{fault-type}}, I will be able to get that sorted for you.
+I'm sorry to hear your {{product}} {{faultType}}, I will be able to get that sorted for you.
 
 Please reply to this email with the following:
 
@@ -718,6 +751,18 @@ You recently requested to receive stock notification on the out of stock <b>{{pr
 I have this on order already but unfortunately Gibson are vague with delivery dates so the best estimate I can give would be within 1-3 months. If you don't mind the wait and want to ensure you get one of the first ones back in the country, I can get the ball rolling with a 10% deposit. How does that sound?
 
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
+
+Kind regards,
+{{salesman}}
+GAK`,
+
+        callbackType: `Hi {{callbackSalesman}},
+
+{{name}} {{callbackType}} {{product}}.
+
+You can reach them on {{customerPhone}} or email them at {{customerEmail}}.
+
+Order Number: {{orderNumber}}
 
 Kind regards,
 {{salesman}}

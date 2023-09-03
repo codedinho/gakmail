@@ -49,7 +49,7 @@
         <!-- Salesman dropdown -->
         <label for="salesman">Select Salesman:</label>
         <select id="salesman">
-        </select>      
+        </select>   
 
         <!-- Template dropdown -->
         <label for="template">Select Template:</label>
@@ -66,6 +66,22 @@
             <option value="unwantedReturn">Return - Unwanted</option>
             <option value="faultyReturn">Return - Faulty</option>
             <option value="warrantyRepair">Warranty Repair</option>
+            <option value="callbackType">CECB Group</option>
+        </select>
+
+        <label for="orderNumber">Order Number:</label>
+        <input type="text" id="orderNumber" placeholder="Enter Order Reference"> 
+
+        <label for="callbackType">Callback Type:</label>
+        <select id="callbackType">
+            <option value="would like a call back about the">Callback</option>
+            <option value="would like an email update about the">Email Update</option>
+            <option value="is looking to place a deposit on the">Reserve & Collect</option>
+            <option value="is after some product advice on the">Product Advice</option>
+            <option value="is after the stock availability of the">Store Availability</option>
+            <option value="is looking to return his recent purchase of the">Store Return</option>
+            <option value="is looking for a suitable alternative to the">Product Alternative</option>
+            <option value="is looking to sell his">Part-Exchange</option>
         </select>
 
         <!-- Customer information inputs -->
@@ -76,21 +92,28 @@
         <label for="bestPrice">Best Price:</label>
         <input type="text" id="bestPrice" placeholder="Enter Best Price">     
         <label for="returnNumber">Return Number:</label>
-        <input type="text" id="returnNumber" placeholder="Enter Return Number">      
+        <input type="text" id="returnNumber" placeholder="Enter Return Number">       
         <label for="salesRef">Quote Reference:</label>
         <input type="text" id="salesRef" placeholder="Enter Quote Reference">       
         <label for="stockDate">Stock Due:</label>
         <input type="text" id="stockDate" placeholder="Enter Stock Due Date">
         <label for="paymentLink">Payment Link:</label>
-        <input type="text" id="paymentLink" placeholder="Enter Link URL">       
+        <input type="text" id="paymentLink" placeholder="Enter Link URL">
+        <label for="customerPhone">Customer Phone:</label>
+        <input type="text" id="customerPhone" placeholder="Enter Customer Email Address">   
+        <label for="customerEmail">Customer Email:</label>
+        <input type="text" id="customerEmail" placeholder="Enter Customer Phone Number">          
 
         <!-- Fault Type dropdown -->
-        <label for="fault-type">Fault Type:</label>
-        <select id="fault-type">
+        <label for="faultType">Fault Type:</label>
+        <select id="faultType">
             <option value="is faulty">Faulty</option>
             <option value="has some cosmetic damage">Cosmetic Damage</option>
             <option value="does not seem to be as new">Signs of Use</option>
         </select>
+
+        <label for="callbackSalesman">Callback Salesman:</label>
+        <select id="callbackSalesman"></select>     
 
         <!-- Subject headline and copy button -->
         <div class="subject-headline-container">
