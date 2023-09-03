@@ -22,7 +22,7 @@
 
 </head>
 <body>
-    
+    <div id="background-container"></div>
     <!-- Popup for password input -->
     <div id="popup" class="popup">
         <div class="popup-content">
@@ -39,11 +39,6 @@
         </div>
     </div>
 
-    <!-- Logo container -->
-    <div id="logo-container">
-        <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
-    </div>
-
     <!-- Form container -->
     <div class="form-container">     
         <!-- Salesman dropdown -->
@@ -56,8 +51,10 @@
         <select id="template">
             <option value="paymentLink">Payment Link #1</option>
             <option value="paymentLink2">Payment Link #2</option>
-            <option value="stockNotification">Stock Notification</option>
-            <option value="stockNotificationGibson">Stock Notification #Gibson</option>
+            <option value="callbackType">CECB General #1</option>
+            <option value="callbackType2">CECB General #2</option>
+            <option value="callbackType3">CECB Order Update #2</option>
+            <option value="callbackType4">CECB Return Update #2</option>
             <option value="webQuote">Web Quote #1</option>
             <option value="webQuote2">Web Quote #2</option>
             <option value="webQuote3">Web Quote #3</option>
@@ -66,20 +63,8 @@
             <option value="unwantedReturn">Return - Unwanted</option>
             <option value="faultyReturn">Return - Faulty</option>
             <option value="warrantyRepair">Warranty Repair</option>
-            <option value="callbackType">CECB Group</option>
-        </select>
-
-        <label for="callbackType">Customer Request:</label>
-        <select id="callbackType">
-            <option value="would like a call back about the">Call Back</option>
-            <option value="would like an email update about the">Email Update</option>
-            <option value="would like a status update on the repair of his">Repair Update</option>
-            <option value="is looking to place a deposit on the">Reserve & Collect</option>
-            <option value="is after some product advice on the">Product Advice</option>
-            <option value="is after the stock availability of the">Store Availability</option>
-            <option value="is looking to return his recent purchase of the">Store Return</option>
-            <option value="is looking for a suitable alternative to the">Product Alternative</option>
-            <option value="is looking to sell his">Part-Exchange</option>
+            <option value="stockNotification">Stock Notification</option>
+            <option value="stockNotificationGibson">Stock Notification #Gibson</option>
         </select>
 
         <label for="callbackSalesman">FAO:</label>
@@ -87,6 +72,9 @@
         
         <label for="orderNumber">Order Number:</label>
         <input type="text" id="orderNumber" placeholder="Enter Order Reference"> 
+
+        <label for="quoteNumber">Quote Number:</label>
+        <input type="text" id="quoteNumber" placeholder="Enter Quote Reference">
 
         <!-- Customer information inputs -->
         <label for="name">Customer Name:</label>
@@ -115,6 +103,22 @@
             <option value="has some cosmetic damage">Cosmetic Damage</option>
             <option value="does not seem to be as new">Signs of Use</option>
         </select> 
+
+        <label for="callbackType">Customer Request:</label>
+        <select id="callbackType">
+            <option value="would like a call back from you about the">Call Back</option>
+            <option value="would like an order update for the">Order Update</option>
+            <option value="would like a status update on the repair of his">Repair Update</option>
+            <option value="would like to come down and collect this, please can you give him a call to reserve it -">Reserve & Collect</option>
+            <option value="is after some product advice on the">Product Advice</option>
+            <option value="wants to know the stock availability of the">Store Availability</option>
+            <option value="is looking to return his recent purchase of the">Store Return</option>
+            <option value="is looking for a suitable alternative to the">Product Alternative</option>
+            <option value="is trying to contact you to enquire about selling a">Part-Exchange</option>
+        </select>
+
+        <label for="additionalInfo">Additional Information ( Optional ):</label>
+        <input type="text" id="additionalInfo" placeholder="Enter Additonal Info">
 
         <!-- Subject headline and copy button -->
         <div class="subject-headline-container">
@@ -155,6 +159,5 @@
 
     <!-- JavaScript files -->
     <script src="script.js"></script>
-    <script src="chat.js"></script>
 </body>
 </html>

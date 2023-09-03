@@ -4,7 +4,29 @@ h1 {
     font-family: 'Staatliches', cursive;
 }
 
-/* Style for the top bar */
+body {
+    font-family: 'Staatliches', cursive;
+    
+}
+
+#background-container {
+    /* Set the background image */
+    background-image: url('./assets/imgs/background.png');
+
+    /* Apply a heavy blur and opacity */
+    filter: blur(20px);
+    opacity: 0.5;
+
+    /* Ensure the background covers the entire viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
+}
+
+
 /* Style for the top bar */
 .top-bar {
     background-color: #333; /* Change the background color to your preference */
@@ -18,27 +40,14 @@ h1 {
     left: 0; /* Align it to the left */
 }
 
-
-
-/* Logo container styles */
-#logo-container {
-    position: absolute; /* Keep it at the top of the page */
-    top: 0;
-    left: 50%; /* Center it horizontally */
-    transform: translateX(-50%); /* Center it horizontally */
-    margin-bottom: 10px;
-    margin-top: 10px;
-    z-index: 1; /* Ensure it's above other elements if necessary */
-}
-
 /* Form container styles */
 .form-container {
     max-width: 641px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 20px;
     border-radius: 5px;
-    background-color: rgba(255, 213, 27, 0.925);
+    background-color: rgba(255, 213, 27, 0.85);
     font-family: 'Staatliches', cursive;
     margin-bottom: 50px;
 }
@@ -46,11 +55,12 @@ h1 {
 /* Label styles */
 label {
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-weight: bold;
-    color: #000000; 
-    font-size: 20px;
+    color: #292929; 
+    font-size: 24px;
+    font-family: 'Staatliches', cursive;
 }
 
 /* Common styles for dropdowns */
@@ -123,13 +133,16 @@ select {
     font-weight: 800;
     font-size: 24px;
     font-family: 'Staatliches', cursive;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for smooth scaling */
 }
 
 .copy-button:hover {
     background-color: rgb(255, 145, 145);
     color: #ffffff;
     outline-width: 3px;
+    transform: scale(1.1); /* Enlarge on hover without translation */
 }
+
 
 /* Email preview container styles */
 .email-preview {
@@ -182,20 +195,21 @@ select {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform property */
     font-family: 'impact', cursive;
     text-align: center;
     line-height: 80px;
     z-index: 999;
     font-weight: 800;
     font-size: 24px;
-    font-family: 'Staatliches', cursive;   
+    font-family: 'Staatliches', cursive;
 }
 
 #copy-button:hover {
     background-color: rgb(255, 145, 145);
     color: #ffffff;
     outline-width: 3px;
+    transform: translate(-50%, -50%) scale(1.1); /* Enlarge on hover */
 }
 
 /* Copied message styles */
@@ -326,7 +340,7 @@ label[for="stockDate"] {
 .popup.show {
     display: flex;
     backdrop-filter: blur(10px);
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.91);
     z-index: 1000;
 }
 
@@ -366,6 +380,7 @@ label[for="stockDate"] {
     position: relative;
 }
 
+/* Download button styles */
 #downloadButton {
     display: none;
     position: absolute;
@@ -377,15 +392,21 @@ label[for="stockDate"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: 800;
+    font-size: 16px;
+    font-family: 'Staatliches', cursive;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for smooth scaling */
 }
 
 #downloadButton:hover {
-    background-color: #007BFF; /* Button background color */
+    background-color: #007BFF; /* Button background color on hover */
+    transform: scale(1.1); /* Enlarge on hover */
 }
 
 #downloadButton:focus {
     outline: none;
 }
+
 
 /* CSS for chat icon */
 #chat-icon {

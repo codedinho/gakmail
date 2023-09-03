@@ -4,79 +4,106 @@ const salesmenData = {
         email: "charlie.marshall@gak.co.uk",
         phone: "01273 665426",
         abrev: "CM",
-        iconPath: './assets/icons/charlie.png'
+        iconPath: './assets/icons/charlie.png',
+        altName: "Charlie"
     },
     Mike: {
         email: "mike.fallon-gray@gak.co.uk",
         phone: "01273 665409",
         abrev: "MF",
-        iconPath: './assets/icons/mike.png'
+        iconPath: './assets/icons/mike.png',
+        altName: "Mike"
     },
     Chris: {
         email: "chris.ottrige@gak.co.uk",
         phone: "01273 665401",
         abrev: "CO",
-        iconPath: './assets/icons/chris.png'
+        iconPath: './assets/icons/chris.png',
+        altName: "Chris"
     },
     Richard: {
         email: "richard.brincklow@gak.co.uk",
         phone: "01273 665403",
         abrev: "RB",
-        iconPath: './assets/icons/richard.png'
+        iconPath: './assets/icons/richard.png',
+        altName: "Richard"
     },
     Dan: {
         email: "dan.harding@gak.co.uk",
         phone: "01273 665406",
         abrev: "DH",
-        iconPath: './assets/icons/dan-harding.png'
+        iconPath: './assets/icons/dan-harding.png',
+        altName: "Dan"
     },
     Jules: {
         email: "jules.monk@gak.co.uk",
         phone: "01273 665408",
         abrev: "JM",
-        iconPath: './assets/icons/jules.png'
+        iconPath: './assets/icons/jules.png',
+        altName: "Jules"
     },
-    Reif: {
+    James: {
         email: "james.hunter@gak.co.uk",
         phone: "01273 665",
         abrev: "RB",
-        iconPath: './assets/icons/james-hunter.png'
+        iconPath: './assets/icons/james-hunter.png',
+        altName: "James"
     },
     Jack: {
         email: "jack.breeze-lamb@gak.co.uk",
         phone: "01273 665420",
         abrev: "JBL",
-        iconPath: './assets/icons/jack-breeze-lamb.png'
+        iconPath: './assets/icons/jack-breeze-lamb.png',
+        altName: "Jack"
     },
-    Education: {
-        email: "edu@gak.co.uk",
-        phone: "01273 665410",
-        abrev: "EDU",
-        iconPath: './assets/icons/edu.png'
+    MailOrder: {
+        email: "mailorder@gak.co.uk",
+        phone: "01273 665400",
+        abrev: "MO",
+        iconPath: './assets/icons/mail-order.png',
+        altName: "guys"
     },
-    GuitarShop: {
+    Guitars: {
         email: "guitarshop@gak.co.uk",
         phone: "01273 665412",
         abrev: "GS",
-        iconPath: './assets/icons/guitar-shop.png'
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "guys"
     },
-    ProAudio: {
+    Pro: {
         email: "guitarshop@gak.co.uk",
         phone: "01273 665413",
         abrev: "PA",
-        iconPath: './assets/icons/proaudio-shop.png'
+        iconPath: './assets/icons/proaudio-shop.png',
+        altName: "guys"
     },
-    DrumShop: {
+    Drums: {
         email: "guitarshop@gak.co.uk",
         phone: "01273 665414",
         abrev: "DS",
-        iconPath: './assets/icons/drum-shop.png'
+        iconPath: './assets/icons/drum-shop.png',
+        altName: "guys"
     },
-    PianoShop: {
+    Pianos: {
         email: "guitarshop@gak.co.uk",
         phone: "01273 665420",
         abrev: "PS",
-        iconPath: './assets/icons/piano-shop.png'
+        iconPath: './assets/icons/piano-shop.png',
+        altName: "guys"
+    },
+    SH: {
+        email: "secondhand@gak.co.uk",
+        phone: "01273 665425",
+        abrev: "SH",
+        iconPath: './assets/icons/second-hand.png',
+        altName: "guys"
+    },
+    Edu: {
+        email: "edu@gak.co.uk",
+        phone: "01273 665410",
+        abrev: "EDU",
+        iconPath: './assets/icons/edu.png',
+        altName: "guys"
     }
 };
 
@@ -159,6 +186,8 @@ const callbackSalesman = document.getElementById('callbackSalesman');
 salesmanDropdown.classList.add('dropdown-style');
 templateDropdown.classList.add('dropdown-style');
 faultTypeDropdown.classList.add('dropdown-style');
+callbackType.classList.add('dropdown-style');
+callbackSalesman.classList.add('dropdown-style');
 
 
 // Add an event listener to the template dropdown
@@ -188,6 +217,7 @@ const dropdownStyle = `
 salesmanDropdown.style = dropdownStyle;
 templateDropdown.style = dropdownStyle;
 faultTypeDropdown.style = dropdownStyle;
+
 
 // Populate the salesman dropdown
 for (const salesmanName in salesmenData) {
@@ -241,6 +271,9 @@ function updateEmailPreview() {
     const customerEmail = document.getElementById('customerEmail').value;
     const customerPhone = document.getElementById('customerPhone').value;
     const orderNumber = document.getElementById('orderNumber').value;
+    const quoteNumber = document.getElementById('quoteNumber').value;
+    const additionalInfo = document.getElementById('additionalInfo').value;
+
 
 
     // Define a mapping of template names to headlines
@@ -257,7 +290,10 @@ function updateEmailPreview() {
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
         stockNotificationGibson: `GAK Stock Notification - ${product}`,
-        callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`
+        callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
+        callbackType2: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
+        callbackType3: `Callback for ${callbackSalesman} - Order Update - ${orderNumber}`,
+        callbackType4: `Callback for ${callbackSalesman} - Return Update - ${returnNumber}`
     };
 
     // Set a default headline of "GAK" for templates without a specific headline
@@ -305,6 +341,7 @@ function updateEmailPreview() {
         'bestPrice': bestPrice,
         'returnNumber': returnNumber,
         'orderNumber': orderNumber,
+        'quoteNumber': quoteNumber,
         'faultType': faultType,  
         'stockDate': stockDate,
         'salesRef': `Q-${salesmanData.abrev}-${salesRef}`, // Construct the quote reference
@@ -312,7 +349,8 @@ function updateEmailPreview() {
         'callbackType': callbackType,
         'callbackSalesman': callbackSalesman,
         'customerEmail': customerEmail,
-        'customerPhone': customerPhone
+        'customerPhone': customerPhone,
+        'additionalInfo': additionalInfo
     };
 
     // Fill the template with data
@@ -756,20 +794,47 @@ Kind regards,
 {{salesman}}
 GAK`,
 
-        callbackType: `Hi {{callbackSalesman}},
+        callbackType: `Hey {{callbackSalesman}},
 
-{{name}} {{callbackType}} {{product}}.
+{{name}} is after a call back when you're free.</b> {{additionalInfo}}
 
-You can reach them on {{customerPhone}} or email them at {{customerEmail}}.
+Please give him a shout on {{customerPhone}}.
 
-In the absence of {{callbackSalesman}}, please can the relevant department chase this on up.
+Cheers,
+{{salesman}}`,
 
-Order Number: {{orderNumber}}
+        callbackType2: `Hey {{callbackSalesman}},
 
-Kind regards,
-{{salesman}}
-GAK`,
-    };
+{{name}} {{callbackType}} <b>{{product}}.</b> {{additionalInfo}}
+
+Please call on {{customerPhone}} or email them at {{customerEmail}}.
+
+Cheers,
+{{salesman}}`,
+
+        callbackType3: `Hey {{callbackSalesman}},
+
+{{name}} has requested an update on his order. {{additionalInfo}}
+
+Please call on {{customerPhone}} or email them at {{customerEmail}}.
+
+Return Number: <a href="https://admin.gak.co.uk/Orders/Orders?orderReference={{orderNumber}}" target="_blank">{{orderNumber}}</a>
+
+Cheers,
+{{salesman}}`,
+
+        callbackType4: `Hey {{callbackSalesman}},
+
+{{name}} has requested an update on his return. {{additionalInfo}}
+
+Please call on {{customerPhone}} or email them at {{customerEmail}}.
+
+Return Number: <a href="https://admin.gak.co.uk/StockreturnItems/Edit/{{returnNumber}}" target="_blank">{{returnNumber}}</a>
+
+Cheers,
+
+{{salesman}}`
+        };
 
     return templates[templateName];
 }
