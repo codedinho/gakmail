@@ -196,27 +196,10 @@ templateDropdown.addEventListener('change', function () {
     hideUnusedFields(selectedTemplate);
 });
 
-
-// Define a CSS class for styling the dropdown
-const dropdownStyle = `
-    width: 100%; /* Set the width to 100% or adjust as needed */
-    height: 48px;
-    padding: 10px;
-    padding-left: 7px;
-    border-radius: 4px;
-    background-color: #ffffff;
-    font-family: 'Arial', cursive;
-    font-size: 14px;
-    color: #333;
-    display: block;
-    color: #000000;
-    line-height: 35px;
-`;
-
-// Apply the CSS class to the dropdown element
-salesmanDropdown.style = dropdownStyle;
-templateDropdown.style = dropdownStyle;
-faultTypeDropdown.style = dropdownStyle;
+// Apply the CSS class to the dropdown elements
+salesmanDropdown.classList.add('custom-dropdown');
+templateDropdown.classList.add('custom-dropdown');
+faultTypeDropdown.classList.add('custom-dropdown');
 
 
 // Populate the salesman dropdown
@@ -728,7 +711,7 @@ GAK`,
 
         faultyReturn: `Hi {{name}},
 
-I'm sorry to hear your {{product}} {{faultType}}, I will be able to get that sorted for you.
+I'm sorry to hear your {{product}} {{faultType}}, though I will be able to get that sorted for you.
 
 Please reply to this email with the following:
 

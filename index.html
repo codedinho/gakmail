@@ -22,6 +22,12 @@
 
 </head>
 <body>
+    <header class="site-header">
+        <button class="header-button">Button 1</button>
+        <button class="header-button">Button 2</button>
+        <button class="header-button">Button 3</button>
+        <button class="header-button">Button 4</button>
+    </header>
     <div id="background-container"></div>
     <!-- Popup for password input -->
     <div id="popup" class="popup">
@@ -43,12 +49,13 @@
     <div class="form-container">     
         <!-- Salesman dropdown -->
         <label for="salesman">Select User</label>
-        <select id="salesman">
-        </select>   
+        <select id="salesman" class="custom-dropdown">
+            <!-- Options for salesman dropdown -->
+        </select>     
 
         <!-- Template dropdown -->
         <label for="template">Select Template:</label>
-        <select id="template">
+        <select id="template" class="custom-dropdown">
             <option value="paymentLink">Payment Link #1</option>
             <option value="paymentLink2">Payment Link #2</option>
             <option value="callbackType">CECB General #1</option>
@@ -68,7 +75,7 @@
         </select>
 
         <label for="callbackSalesman">FAO:</label>
-        <select id="callbackSalesman"></select>    
+        <select id="callbackSalesman" class="custom-dropdown"></select> 
         
         <label for="orderNumber">Order Number:</label>
         <input type="text" id="orderNumber" placeholder="Enter Order Reference"> 
@@ -98,14 +105,17 @@
 
         <!-- Fault Type dropdown -->
         <label for="faultType">Fault Type:</label>
-        <select id="faultType">
+        <select id="faultType" class="custom-dropdown">
             <option value="is faulty">Faulty</option>
             <option value="has some cosmetic damage">Cosmetic Damage</option>
+            <option value="has sustained some damage in transit">Courier Damage</option>
             <option value="does not seem to be as new">Signs of Use</option>
+            <option value="isn't powering up">No Power</option>
+            <option value="you've not recieved the correct order!">Incorrect Item Recieved</option>
         </select> 
 
         <label for="callbackType">Customer Request:</label>
-        <select id="callbackType">
+        <select id="callbackType" class="custom-dropdown">
             <option value="would like a call back from you about the">Call Back</option>
             <option value="would like an order update for the">Order Update</option>
             <option value="would like a status update on the repair of his">Repair Update</option>
@@ -140,7 +150,7 @@
             <!-- Email content display -->
             <div id="email-content" class="email-preview"></div>
             <!-- PDF Button Downloader -->
-            <a id="downloadButton" style="display: none;" href="./assets/PDF/packing-guide.pdf" download="packing-guide.pdf">Download Packaging Guide</a>
+            <a id="downloadButton" style="display: none;" href="./assets/PDF/packing-guide.pdf" download="packing-guide.pdf">Download Packaging Guide PDF</a>
             <!-- Copy button for the email content -->
             <div id="copy-button">COPY</div>
         </div>      
