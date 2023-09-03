@@ -228,7 +228,8 @@ function updateEmailPreview() {
         unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
-        stockNotification: `GAK Stock Notification - ${product}`
+        stockNotification: `GAK Stock Notification - ${product}`,
+        stockNotificationGibson: `GAK Stock Notification - ${product}`
     };
 
     // Set a default headline of "GAK" for templates without a specific headline
@@ -682,13 +683,13 @@ Sorry to hear that your {{product}} has gone faulty, it is still within warranty
 
 Please reply to this email with the following:
 
-<b>• The fault description.</b>
+<b> • The fault description.
 
-<b>• The address you would like me to collect from.</b>
+    • The address you would like me to collect from.
 
-Confirmation that the unit is ready for collection as per the below.
+    • Confirmation that the unit is ready for collection as per the below:</b>
 
-Please ensure the item is well packaged, wrapped and/or double boxed and ready for transit. The packaging will need to offer equal or better protection than the original did if the original is no longer available. 
+<em>Please ensure the item is well packaged, wrapped and/or double boxed and ready for transit. The packaging will need to offer equal or better protection than the original did if the original is no longer available.</em>
 
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
@@ -705,6 +706,18 @@ I am pleased to say that we are hoping to see stock around {{stockDate}}.
 It's hard to guarantee stock will be free upon arrival so if you are interested a 10% deposit will secure one for you. 
 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime if you wish to hear more. 
+
+Kind regards,
+{{salesman}}
+GAK`,
+
+        stockNotificationGibson: `Hi {{name}},
+
+You recently requested to receive stock notification on the out of stock <b>{{product}}</b> - Great choice! 
+
+I have this on order already but unfortunately Gibson are vague with delivery dates so the best estimate I can give would be within 1-3 months. If you don't mind the wait and want to ensure you get one of the first ones back in the country, I can get the ball rolling with a 10% deposit. How does that sound?
+
+To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
 {{salesman}}

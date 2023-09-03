@@ -4,6 +4,22 @@ h1 {
     font-family: 'Staatliches', cursive;
 }
 
+/* Style for the top bar */
+/* Style for the top bar */
+.top-bar {
+    background-color: #333; /* Change the background color to your preference */
+    color: #fff; /* Change the text color to your preference */
+    height: 100px; /* Set the height to 50px */
+    text-align: center; /* Center-align the content within the top bar */
+    font-size: 18px; /* Adjust the font size as needed */
+    width: 100%; /* Make it 100% width of the window */
+    position: fixed; /* Fixed positioning to keep it at the top */
+    top: 0; /* Stick it to the top of the viewport */
+    left: 0; /* Align it to the left */
+}
+
+
+
 /* Logo container styles */
 #logo-container {
     position: absolute; /* Keep it at the top of the page */
