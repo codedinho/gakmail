@@ -597,6 +597,28 @@ function checkPassword() {
     }
 }
 
+// JavaScript to clear all fields when the Clear button is clicked
+document.getElementById("clearFieldsButton").addEventListener("click", function () {
+    // Replace these lines with code to clear each input field by ID
+    document.getElementById("callbackSalesman").value = "";
+    document.getElementById("callbackType").value = "";
+    document.getElementById("orderNumber").value = "";
+    document.getElementById("quoteNumber").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("product").value = "";
+    document.getElementById("bestPrice").value = "";
+    document.getElementById("returnNumber").value = "";
+    document.getElementById("salesRef").value = "";
+    document.getElementById("stockDate").value = "";
+    document.getElementById("paymentLink").value = "";
+    document.getElementById("customerPhone").value = "";
+    document.getElementById("customerEmail").value = "";
+    document.getElementById("faultType").value = "";
+    document.getElementById("additionalInfo").value = "";
+    updateEmailPreview();
+});
+
+
 
 function getEmailTemplate(templateName) {
     const templates = {
