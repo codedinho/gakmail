@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Get task priority and description from the form
         console.log("Button clicked"); // Check if the button click event is detected
         const taskPriority = document.getElementById('taskPriority').value;
+        const taskDay = document.getElementById('taskDay').value;
         console.log("Task Priority: ", taskPriority); // Check if the task priority is correctly obtained
         const taskDescription = document.getElementById('taskDescription').value;
 
@@ -19,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Clear the form inputs
         document.getElementById('taskPriority').value = 'high';
         document.getElementById('taskDescription').value = '';
+        document.getElementById('taskDay').value = '';
+
     });
 
     function submitTask(priority, description, name, day) {
