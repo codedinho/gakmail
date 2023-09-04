@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
 
@@ -169,28 +170,60 @@
                     <div id="tooltip" class="hidden">Alright mate</div>
                 </div>
             </div>
-            <div id="tab2" class="tab-content hidden">
+            <div id="tab2" class="tab-content">
                 <!-- Content for Tab 2 -->
-                <h1>Other Templates</h1>
-                <p>This is the content for Tab 2.</p>
-            </div>
-        </div>
+                <h1>Salesman Task List</h1>
+                <div class="task-form-container">  
+                    <!-- Task input form -->
+                    <form id="taskForm">
+                        <label for="taskPriority">Task Priority:</label>
+                        <select id="taskPriority" class="custom-dropdown">
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <!-- Inside your form -->
+                        <label for="taskDay">Select a Day:</label>
+                        <select id="taskDay">
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                        </select>
+                        
+
+                        
+                
+                        <label for="taskDescription">Task Description:</label>
+                        <textarea id="taskDescription" rows="4" placeholder="Enter task description"></textarea>
+                
+                        <button type="button" id="addTaskButton">Add Task</button>
+                    </form>
+                
+                    <!-- Task list display -->
+                    <div id="taskList" class="bubble-container">
+                        <!-- Task bubbles will be dynamically added here -->
+                    </div>
+                </div>              
             <div id="tab3" class="tab-content hidden">
-                <!-- Content for Tab 2 -->
+                <!-- Content for Tab 3 -->
                 <h1>Other Templates</h1>
                 <p>This is the content for Tab 3.</p>
             </div>
         </div>
             <div id="tab4" class="tab-content hidden">
-                <!-- Content for Tab 2 -->
+                <!-- Content for Tab 4 -->
                 <h1>Other Templates</h1>
                 <p>This is the content for Tab 4.</p>
             </div>
         </div>
 
-
-
     <!-- JavaScript files -->
-<script src="script.js"></script>
+<script src="emails.js"></script>
+<script src="tasks.js"></script>
+
 </body>
 </html>

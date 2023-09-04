@@ -392,7 +392,6 @@ function downloadPDF() {
     document.getElementById("downloadButton").setAttribute("download", "packing-guide.pdf");
 }
 
-
 // Function to hide unused fields based on the selected template
 function hideUnusedFields(templateName) {
     const inputElements = document.querySelectorAll('input[type="text"]');
@@ -429,15 +428,23 @@ function hideUnusedFields(templateName) {
         const label = document.querySelector(`label[for="${fieldId}"]`);
         const shouldHide = !placeholders.some(placeholder => placeholder.includes(fieldId));
 
-        if (shouldHide) {
-            selectElement.style.display = 'none';
-            label.style.display = 'none';
+        if (fieldId !== 'taskPriority' && fieldId !== 'taskDay') {
+            // Exclude the "taskPriority" and "taskDay" dropdowns from hiding logic
+            if (shouldHide) {
+                selectElement.style.display = 'none';
+                label.style.display = 'none';
+            } else {
+                selectElement.style.display = 'block';
+                label.style.display = 'block';
+            }
         } else {
+            // Always show the "taskPriority" and "taskDay" dropdowns
             selectElement.style.display = 'block';
             label.style.display = 'block';
         }
     });
 }
+
 
 // Get references to the input field and copy button
 const stockDateInput = document.getElementById('stockDate');
