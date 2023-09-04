@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <div id="background-container"></div>
-    <!-- Popup for password input -->
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <!-- Logo -->
-            <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
-
-            <!-- Password input form -->
-            <p>Please enter the password to continue:</p>
-            <form id="passwordForm">
-                <!-- Password input field -->
-                <input type="password" id="passwordInput" placeholder="Password">
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
     <!-- Meta information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,6 +21,22 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <body>
+        <div id="background-container"></div>
+        <!-- Popup for password input -->
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <!-- Logo -->
+                <img id="logo" src="./assets/icons/logo.png" alt="Your Logo">
+    
+                <!-- Password input form -->
+                <p>Please enter the password to continue:</p>
+                <form id="passwordForm">
+                    <!-- Password input field -->
+                    <input type="password" id="passwordInput" placeholder="Password">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
         <header class="site-header">
             <button class="header-button tab-button active" id="tab1-button">Email Templates</button>
             <button class="header-button tab-button" id="tab2-button">Tab 2</button>
