@@ -59,7 +59,7 @@ body {
 
 #background-container {
     /* Set the background image */
-    background-image: url('./assets/imgs/background.PNG');
+    background-image: url('./assets/imgs/background.png');
 
     /* Apply a heavy blur and opacity */
     filter: blur(20px);
