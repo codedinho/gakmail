@@ -1,41 +1,49 @@
 .site-header {
-    background-color: rgb(219, 51, 51); /* Change the background color to your preference */
+    background-color: rgb(43, 43, 43); /* Default background color */
     color: #fff; /* Change the text color to your preference */
-    height: 100px; /* Set the height of the header as needed */
+    height: 75px; /* Set the height of the header as needed */
     width: 100%; /* Make it 100% width of the viewport */
-    position: fixed; /* Fixed positioning to keep it at the top */
+    position: absolute; /* Fixed positioning to keep it at the top */
     top: 0; /* Stick it to the top of the viewport */
     left: 0; /* Align it to the left */
     z-index: 1000; /* Adjust the z-index as needed */
     display: flex; /* Use flexbox to center and space the buttons */
     justify-content: center; /* Center the buttons horizontally */
     align-items: center; /* Center the buttons vertically */
-    
+    position: absolute;
+    box-sizing: border-box;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Adjust shadow properties as needed */
+}
+
+#logo {
+    max-width: 200px; /* Adjust the maximum width as needed */
+    height: auto; /* Maintain the aspect ratio */
+    margin-bottom: 10px;
 }
 
 /* Style for the buttons */
 .header-button {
-    background-color: rgba(255, 213, 27, 1); /* Default background color */
-    width: 180px;
-    height: 50px;
-    color: #292929; /* Text color */
+    background-color: rgba(0, 0, 0, 0); /* Default background color */
+    max-width: 300px;
+    width: 100%;
+    height: 75px;
+    color: #ffffff; /* Text color */
     border: none; /* Remove button borders */
-    border-radius: 5px; /* Add rounded edges */
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 5px 10px; /* Adjust padding as needed */
     cursor: pointer;
     transition: background-color 0.3s ease; /* Add transition for hover effect */
-    margin: 0 30px; /* Add horizontal spacing between buttons */
     font-family: 'Staatliches', cursive;
-    font-size: 24px;
+    font-size: 20px; /* Adjust font size for smaller screens */
     font-weight: 800;
     letter-spacing: 1.5px;
-
 }
 
 /* Hover effect for buttons */
 .header-button:hover {
-    background-color: #ff9b05; /* Change background color on hover */
+    background-color: rgba(0, 0, 0, 0.2); /* Change background color on hover */
+    color: #d8d8d8; /* Text color */
 }
+
 
 /* Center-align the page title */
 h1 {
@@ -70,11 +78,13 @@ body {
 .form-container {
     max-width: 641px;
     margin: 0 auto;
-    margin-top: 125px;
+    margin-top: 100px;
+    margin-bottom: 50px;
     padding: 20px;
-    border-radius: 5px;
     background-color: rgba(255, 213, 27, 0.9);
     font-family: 'Staatliches', cursive;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Adjust shadow properties as needed */
+
 }
 
 /* Label title styles */
@@ -84,7 +94,7 @@ label {
     margin-bottom: 15px;
     font-weight: bold;
     color: #292929; 
-    font-size: 24px;
+    font-size: 21px;
     font-family: 'Staatliches', cursive;
 }
 
@@ -112,8 +122,8 @@ select {
     padding-left: 10px;
     border-radius: 4px;
     background-color: #ffffff;
-    font-family: 'Arial', cursive;
-    font-size: 14px;
+    font-family: 'Arial';
+    font-size: 15px;
     box-sizing: border-box;
     color: #333;
     text-align: left;
@@ -287,11 +297,11 @@ label[for="stockDate"] {
 
 /* Player icon styles (for both mobile and screens) */
 #player-icon {
-    position: fixed;
-    bottom: 10px; 
+    position: absolute;
+    top: -15px; 
     right: 10px; 
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     background-color: #f0f0f0;
     border-radius: 50%;
     overflow: hidden;
@@ -306,8 +316,8 @@ label[for="stockDate"] {
 /* Tooltip styles */
 #tooltip {
     position: fixed;
-    bottom: 12%;
-    right: 0%;
+    top: 5%;
+    right: 2.5%;
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -316,6 +326,7 @@ label[for="stockDate"] {
     display: none;
     font-size: 20px;
     font-family: 'Staatliches', cursive;
+    z-index: 9999;
 }
 
 /* Show tooltip on hover */
@@ -487,6 +498,29 @@ label[for="stockDate"] {
     -moz-appearance: none;
     cursor: pointer;
 }
+
+/* CSS */
+.hidden {
+    display: none;
+  }
+  
+
+
+.tab-button.active {
+    background-color: #ff0000; /* Change this to your desired color */
+    color: #ffffff; /* Change text color if needed */
+}
+
+/* CSS in styles.css */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
 
 
 

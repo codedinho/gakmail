@@ -131,6 +131,40 @@ window.addEventListener('load', function () {
     updateEmailPreview(); // Call updateEmailPreview on page load
 });
 
+
+// Get all tab buttons and tab contents
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabContents = document.querySelectorAll(".tab-content");
+
+// Add a click event listener to each tab button
+tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        // Remove the 'active' class from all tab buttons
+        tabButtons.forEach((tabButton) => {
+            tabButton.classList.remove("active");
+        });
+
+        // Add the 'active' class to the clicked tab button
+        button.classList.add("active");
+
+        // Hide all tab contents
+        tabContents.forEach((content) => {
+            content.classList.remove("active");
+        });
+
+        // Get the ID of the clicked tab button
+        const tabId = button.id.replace("-button", "");
+
+        // Show the corresponding tab content
+        const tabContent = document.getElementById(tabId);
+        tabContent.classList.add("active");
+    });
+});
+
+
+
+  
+
 // Function to generate salesman icons
 function generateSalesmanIcons(selectedSalesman = 'Charlie') {
 
@@ -278,17 +312,6 @@ function updateEmailPreview() {
         callbackType3: `Callback for ${callbackSalesman} - Order Update - ${orderNumber}`,
         callbackType4: `Callback for ${callbackSalesman} - Return Update - RM${returnNumber}`
     };
-
-    // Set a default headline of "GAK" for templates without a specific headline
-    let subjectHeadline = 'GAK';
-
-    // Check if the template name has a corresponding headline, if not, use the default
-    if (template in templateHeadlines) {
-        subjectHeadline = templateHeadlines[template];
-    }
-
-    // Use the subjectHeadline variable in the email preview or wherever needed
-    document.getElementById('email-headline').textContent = subjectHeadline;
 
     
     // Set the email headline based on the selected template
@@ -628,7 +651,7 @@ GAK`,
 
 {{salesman}} here from GAK. We've noticed from your recent GAK Websearch that you've been checking out this - {{product}}
 
-Great choice! Just letting you know that there is possibly a small discount or free gift we can include with this order should you so wish. This deal is only available if you order through me, and discounts can only be applied for an outright purchase.
+Great choice! Just letting you know that there is possibly a small discount or free gift we can include with this order should you so wish. This deal is only available if you order through me, as well as any discounts that can be applied for an outright purchase.
     
 We also offer great finance options over the phone if that is the way that you intend to go (unfortunately only at our advertised prices for 0% finance, though I may either have some extra options not listed or I may be able to throw in some freebies!).
 
