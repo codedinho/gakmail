@@ -459,21 +459,13 @@ stockDateInput.addEventListener('input', function () {
     }
 });
 
-// Function to copy text to the clipboard
-function copyToClipboard(text) {
-    const tempTextArea = document.createElement('textarea');
-    tempTextArea.value = text;
-    document.body.appendChild(tempTextArea);
-    tempTextArea.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempTextArea);
-}
 
 // Get references to the copy button and the copied message container
 const copiedMessage = document.getElementById('copiedMessage');
 
 // Add an event listener to the copy button (for copying functionality)
 copyButton.addEventListener('click', function () {
+    closeAllMessages();
     const emailContent = document.getElementById('email-content');
     
     // Create a range to select the text content
@@ -537,6 +529,7 @@ playerIcon.addEventListener('touchmove', (e) => {
 });
 
 function copyEmailHeadline() {
+    closeAllMessages();
     const emailHeadlineElement = document.getElementById('email-headline');
     const emailHeadlineText = emailHeadlineElement.innerText;
   
@@ -597,9 +590,15 @@ function checkPassword() {
     }
 }
 
-// JavaScript to clear all fields when the Clear button is clicked
-document.getElementById("clearFieldsButton").addEventListener("click", function () {
-    // Replace these lines with code to clear each input field by ID
+// Get references to the Clear button and the Fields Cleared message container
+const clearButton = document.getElementById('clearFieldsButton');
+const fieldsClearedMessage = document.getElementById('fieldsClearedMessage');
+
+// Add an event listener to the Clear button (for clearing fields and displaying the message)
+clearButton.addEventListener('click', function () {
+    // Close all messages
+    closeAllMessages();
+    // JavaScript to clear all fields when the Clear button is clicked
     document.getElementById("callbackSalesman").value = "";
     document.getElementById("callbackType").value = "";
     document.getElementById("orderNumber").value = "";
@@ -616,7 +615,25 @@ document.getElementById("clearFieldsButton").addEventListener("click", function 
     document.getElementById("faultType").value = "";
     document.getElementById("additionalInfo").value = "";
     updateEmailPreview();
+
+    // Show the "Fields Cleared" message
+    fieldsClearedMessage.classList.remove('hidden');
+
+    // Hide the "Fields Cleared" message after a short delay (e.g., 2 seconds)
+    setTimeout(function () {
+        fieldsClearedMessage.classList.add('hidden');
+    }, 2000);
 });
+
+// Get references to the Clear button and the message containers
+const emailCopiedMessage = document.getElementById('emailCopiedMessage');
+
+// Function to close all messages
+function closeAllMessages() {
+    fieldsClearedMessage.classList.add('hidden');
+    emailCopiedMessage.classList.add('hidden');
+    copiedMessage.classList.add('hidden');
+}
 
 
 

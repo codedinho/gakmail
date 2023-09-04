@@ -43,12 +43,18 @@
             <button class="header-button tab-button" id="tab3-button">Tab 3</button>
             <button class="header-button tab-button" id="tab4-button">Tab 4</button>
         </header>
+
+        <!-- Player icon -->
+        <div id="player-icon">
+            <img id="player-icon-image" src="" alt="">
+        </div>
         
         <div id="content-container">
             <div id="tab1" class="tab-content active">
                 <!-- Form container -->
                 <div class="form-container">  
-                    <button id="clearFieldsButton" class="clear-button">Clear All</button>   
+                    <button id="clearFieldsButton" class="clear-button">Clear All</button> 
+                    <div id="fieldsClearedMessage" class="message hidden">Fields Cleared</div>  
                     <!-- Salesman dropdown -->
                     <label for="salesman">Select User</label>
                     <select id="salesman" class="custom-dropdown">
@@ -155,11 +161,6 @@
                         <!-- Copy button for the email content -->
                         <div id="copy-button">COPY</div>
                     </div>      
-
-                    <!-- Player icon -->
-                    <div id="player-icon">
-                        <img id="player-icon-image" src="" alt="">
-                    </div>
                         
                     <!-- Copied message for email content -->
                     <div id="copiedMessage" class="hidden">Email Copied</div>
