@@ -571,23 +571,6 @@ label[for="stockDate"] {
 
 }
 
-.bubble-container {
-    flex-wrap: wrap;
-    gap: 0px;
-}
-
-.bubble {
-    background-color: #007bff; /* Default bubble color */
-    color: #fff;
-    border-radius: 20px;
-    padding: 10px 15px;
-    text-align: center;
-    width: 100%; /* Set the width to 100% */
-    box-sizing: border-box;
-    margin-bottom: 20px;
-
-}
-
 .medium {
     background-color: #ffc107; /* Medium priority color */
 }
@@ -599,31 +582,48 @@ label[for="stockDate"] {
 /* Style for task description */
 #taskDescription {
     width: 100%;
+    height: 48px;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    margin-bottom: 20px;
-    margin-top: 20px;
     box-sizing: border-box;
+    line-height: 25px;
+    font-family: 'Arial', cursive;
+    text-align: center; /* Center text within the form */
+    overflow: auto;
+    margin-bottom: 20px;
+    resize: none; /* Prevent user from resizing the text box */
+}
+
+
+/* Style for the form (centering the button) */
+#taskForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center content */
+    text-align: center; /* Center text within the form */
 }
 
 /* Style for the Add Task button */
 #addTaskButton {
-    background-color: #007bff;
+    background-color: rgb(219, 51, 51);
     color: #fff;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: center;
+    padding: 15px 25px;
     font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
 }
 
 /* Hover effect for the Add Task button */
 #addTaskButton:hover {
-    background-color: #0056b3;
+    background-color: rgb(219, 51, 51, 0.8);
 }
 
 /* Form container styles */
@@ -634,29 +634,121 @@ label[for="stockDate"] {
     margin-top: 38.5px;
     margin-bottom: 50px;
     padding: 20px;
-    background-color: rgba(255, 213, 27, 0.9);
+    background-color: rgba(0, 0, 0, 0.3);
     font-family: 'Staatliches', cursive;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);  
 }
 
-/* Remove the custom-dropdown styles */
-#taskDay {
-    width: 100%;
-    height: 48px;
-    padding: 10px;
-    padding-left: 7px;
-    border-radius: 4px;
-    background-color: #ffffff;
-    border: none;
-    font-family: 'Arial', cursive;
-    font-size: 14px;
-    color: #333;
-    position: relative;
-    line-height: 20px;
+/* Style for the task priority icons */
+.priority-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.priority-icon {
     cursor: pointer;
 }
 
+.priority-icon input[type="radio"] {
+    display: none; /* Hide the radio buttons */
+}
 
+.priority-icon label {
+    position: relative;
+    cursor: pointer;
+}
+
+.priority-icon img {
+    width: 58px; /* Adjust icon size as needed */
+    opacity: 0.6;
+    margin: 10px;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+/* Increase size and decrease opacity for selected icon */
+.priority-icon input[type="radio"]:checked + label img {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+
+/* Style for the labels */
+label {
+    display: block; /* Display labels as block elements to stack them */
+    margin-bottom: 8px; /* Add spacing between labels and form elements */
+}
+
+.task-priority {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0); /* Example color */
+    font-family: 'Arial', cursive;
+}
+
+.timestamp {
+    font-size: 14px;
+    color: lightgray; /* Light gray color for timestamp */
+    font-family: 'Arial', cursive;
+    align-self: center; /* Align timestamp to the flex-end (right) */
+}
+
+
+.bubble-container {
+    flex-wrap: wrap;
+    gap: 0px;
+}
+
+.bubble {
+    background-color: rgb(43, 43, 43); /* Default bubble color */
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 15px;
+    text-align: center;
+    width: 100%; /* Set the width to 100% */
+    box-sizing: border-box;
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Add space between elements */
+    align-items: center; /* Center items vertically */
+    padding: 10px; /* Add padding for spacing */
+    margin-bottom: 10px; /* Add margin between bubbles */
+    overflow: hidden;
+    height: 78px;
+}
+
+.task-details {
+    flex-grow: 1; /* Allow the task-details to grow and take available space */
+    padding: 0 10px; /* Add padding on both sides */
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
+}
+
+/* Add spacing to the text content within the bubble */
+.bubble p {
+    margin: 5px 0; /* Add margin to the top and bottom of each <p> element inside .bubble */
+}
+
+/* Define styles for different priority levels */
+.bubble.low {
+    background-color: #28a745; /* Green for low priority */
+}
+
+.bubble.medium {
+    background-color: #ffc107; /* Yellow for medium priority */
+}
+
+.bubble.high {
+    background-color: #dc3545; /* Red for high priority */
+}
+
+/* Styles for priority icons within the bubble */
+.bubble img {
+    width: 45px; /* Adjust the image width as needed */
+    height: 45px; /* Adjust the image height as needed */
+    margin-right: 10px; /* Add some space between the image and text */
+    float: left; /* Float the image to the left */
+}
 
 
 

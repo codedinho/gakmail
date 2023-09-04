@@ -40,7 +40,7 @@
         </div>
         <header class="site-header">
             <button class="header-button tab-button active" id="tab1-button">Email Templates</button>
-            <button class="header-button tab-button" id="tab2-button">Tab 2</button>
+            <button class="header-button tab-button" id="tab2-button">Tasks</button>
             <button class="header-button tab-button" id="tab3-button">Tab 3</button>
             <button class="header-button tab-button" id="tab4-button">Tab 4</button>
         </header>
@@ -173,39 +173,40 @@
             <div id="tab2" class="tab-content">
                 <!-- Content for Tab 2 -->
                 <h1>Salesman Task List</h1>
-                <div class="task-form-container">  
+                <div class="task-form-container">
                     <!-- Task input form -->
                     <form id="taskForm">
-                        <label for="taskPriority">Task Priority:</label>
-                        <select id="taskPriority" class="custom-dropdown">
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                        <!-- Inside your form -->
-                        <label for="taskDay">Select a Day:</label>
-                        <select id="taskDay" class="custom-dropdown">
-                            <option value="Monday">Monday</option>
-                            <option value="Tuesday">Tuesday</option>
-                            <option value="Wednesday">Wednesday</option>
-                            <option value="Thursday">Thursday</option>
-                            <option value="Friday">Friday</option>
-                            <option value="Saturday">Saturday</option>
-                            <option value="Sunday">Sunday</option>
-                        </select>
-                                            
-                
-                        <label for="taskDescription">Task Description:</label>
-                        <textarea id="taskDescription" rows="4" placeholder="Enter task description"></textarea>
-                
+                        <label>Task Priority:</label>
+                        <div class="priority-icons">
+                            <div class="priority-icon">
+                                <input type="radio" id="high-priority" name="priority" value="high">
+                                <label for="high-priority">
+                                    <img src="./assets/icons/high-priority.png" alt="High Priority">
+                                </label>
+                            </div>
+                            <div class="priority-icon">
+                                <input type="radio" id="medium-priority" name="priority" value="medium">
+                                <label for="medium-priority">
+                                    <img src="./assets/icons/medium-priority.png" alt="Medium Priority">
+                                </label>
+                            </div>
+                            <div class="priority-icon">
+                                <input type="radio" id="low-priority" name="priority" value="low">
+                                <label for="low-priority">
+                                    <img src="./assets/icons/low-priority.png" alt="Low Priority">
+                                </label>
+                            </div>
+                        </div>
+                        <label for="taskDescription"></label>
+                        <textarea id="taskDescription" rows="4" placeholder="Enter task description (max 75 characters)" maxlength="75" required></textarea>
                         <button type="button" id="addTaskButton">Add Task</button>
                     </form>
-                
+            
                     <!-- Task list display -->
                     <div id="taskList" class="bubble-container">
                         <!-- Task bubbles will be dynamically added here -->
                     </div>
-                </div>              
+                </div>            
             <div id="tab3" class="tab-content hidden">
                 <!-- Content for Tab 3 -->
                 <h1>Other Templates</h1>
