@@ -393,9 +393,6 @@ function downloadPDF() {
 }
 
 
-
-
-
 // Function to hide unused fields based on the selected template
 function hideUnusedFields(templateName) {
     const inputElements = document.querySelectorAll('input[type="text"]');
@@ -634,8 +631,6 @@ function closeAllMessages() {
     emailCopiedMessage.classList.add('hidden');
     copiedMessage.classList.add('hidden');
 }
-
-
 
 function getEmailTemplate(templateName) {
     const templates = {
