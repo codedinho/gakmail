@@ -5,7 +5,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const highPriorityButton = document.getElementById('high-priority');
     const mediumPriorityButton = document.getElementById('medium-priority');
     const lowPriorityButton = document.getElementById('low-priority');
-    const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    let savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Function to remove all child elements from taskList
+    function removeAllTasks() {
+        while (taskList.firstChild) {
+            taskList.removeChild(taskList.firstChild);
+        }
+    }
+
+    // Clear all existing task boxes before recalling from local storage
+    removeAllTasks();
+
+    // Load saved tasks from local storage when the page loads
+    savedTasks.forEach(function (task) {
+        const { priority, description, icon } = task;
+        console.log("Priority:", priority); // Debugging line
+
+        if (priority) {
+            createTaskBubble(priority, description, icon);
+        }
+    });
 
     // Add event listeners for priority buttons
     highPriorityButton.addEventListener('click', function () {
@@ -20,30 +40,57 @@ document.addEventListener('DOMContentLoaded', function () {
         setPriorityButtonSelected(lowPriorityButton);
     });
 
+    // When adding a new task and saving it to local storage
     addTaskButton.addEventListener('click', function () {
-        // Get task priority and description from the selected priority button
-        const taskPriority = getSelectedPriority(); // Make sure this is correctly set
-
+        // Get task priority, description, and icon from the selected priority button
+        const taskPriority = getSelectedPriority();
         const taskDescription = document.getElementById('taskDescription').value;
-        console.log(taskDescription); // Debugging line
 
-        
         // Check if the task description is empty
         if (taskDescription.trim() === '') {
             alert('Please enter a task description.');
             return;
         }
-    
-        // Call the createTaskBubble function with the task priority and description
-        createTaskBubble(taskPriority, taskDescription); // Make sure taskPriority is defined
-    
+
+        // Determine the icon path based on priority
+        let taskIcon;
+        switch (taskPriority.toLowerCase()) {
+            case 'low':
+                taskIcon = './assets/icons/low-priority.png';
+                break;
+            case 'medium':
+                taskIcon = './assets/icons/medium-priority.png';
+                break;
+            case 'high':
+                taskIcon = './assets/icons/high-priority.png';
+                break;
+            default:
+                taskIcon = '';
+        }
+
+        // Call the createTaskBubble function with the task priority, description, and icon
+        createTaskBubble(taskPriority, taskDescription, taskIcon);
+
         // Clear the form inputs
         document.getElementById('taskDescription').value = '';
-    
+
         // Reset priority buttons
         resetPriorityButtons();
+
+        // Save the task to local storage with the icon
+        saveTaskToLocalStorage(taskPriority, taskDescription, taskIcon);
     });
-    
+
+    function saveTaskToLocalStorage(priority, description, icon) {
+        // Get the existing saved tasks or initialize an empty array
+        savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Add the new task to the existing tasks array
+        savedTasks.push({ priority, description, icon });
+
+        // Save the updated tasks back to local storage
+        localStorage.setItem('tasks', JSON.stringify(savedTasks));
+    }
 
     function setPriorityButtonSelected(button) {
         // Remove "selected" class from all buttons
@@ -68,9 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    console.log("Icon Image Path:", iconImage);
-
-
     function resetPriorityButtons() {
         // Remove "selected" class from all buttons
         highPriorityButton.classList.remove('selected');
@@ -85,45 +129,20 @@ document.addEventListener('DOMContentLoaded', function () {
         return `${hours}:${minutes}`;
     }
 
-    function createTaskBubble(priority, description) {
-        // Add a debugging line to check the value of priority
-        console.log("Priority:", priority);
-    
+    function createTaskBubble(priority, description, icon) {
         // Create a new bubble task element
         const taskBubble = document.createElement('div');
-    
-        // Determine the CSS class based on priority
-        let priorityClass;
-        let iconImage; // Define iconImage here
-        switch (priority.toLowerCase()) {
-            case 'low':
-                priorityClass = 'low-priority';
-                iconImage = `./assets/icons/${priority.toLowerCase()}-priority.png`;
-                break;
-            case 'medium':
-                priorityClass = 'medium-priority';
-                iconImage = `./assets/icons/${priority.toLowerCase()}-priority.png`;
-                break;
-            case 'high':
-                priorityClass = 'high-priority';
-                iconImage = `./assets/icons/${priority.toLowerCase()}-priority.png`;
-                break;
-            default:
-                priorityClass = '';
-                iconImage = '';
-        }
-    
-        // Add a debugging line to check the value of iconImage
-        console.log("Icon Image Path:", iconImage);
-    
+
+        // Set the CSS class based on priority
+        const priorityClass = `${priority.toLowerCase()}-priority`;
+
         // Set the CSS class
         taskBubble.className = `bubble ${priorityClass}`;
         taskBubble.innerHTML = `
-            <img src="${iconImage}" alt="Priority Icon" class="priority-icon">
+            <img src="${icon}" alt="Priority Icon" class="priority-icon">
             <p class="task-details">${description}</p>
             <p class="timestamp">${getCurrentTimestamp()}</p>
         `;
-    
 
         // Add an event listener for hovering over the icon
         const priorityIcon = taskBubble.querySelector('.priority-icon');
@@ -133,12 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Add an event listener for when the mouse leaves the icon area
         priorityIcon.addEventListener('mouseout', function () {
-            this.src = iconImage; // Revert to the original image
-
-            // Add a debugging line to check the src attribute
-            console.log("Image Source:", this.src);
+            this.src = icon; // Revert to the original image
         });
-
 
         // Add an event listener for when the user clicks to complete the task
         taskBubble.addEventListener('click', function () {
@@ -147,39 +162,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Remove the task bubble from the list
                 taskList.removeChild(this);
 
-                // Remove the completed task from local storage
-                const updatedTasks = savedTasks.filter(task => task.description !== description);
-                localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+                // Filter out the completed task from the savedTasks array
+                savedTasks = savedTasks.filter(task => task.description !== description);
+
+                // Update local storage with the filtered savedTasks array
+                localStorage.setItem('tasks', JSON.stringify(savedTasks));
             }
         });
 
         // Append the task bubble to the task list
         taskList.appendChild(taskBubble);
-
-        // Save the updated task list to local storage
-        saveTasksToLocalStorage();
-    }
-
-    // Load saved tasks from local storage when the page loads
-    savedTasks.forEach(function (task) {
-        const { priority, description } = task;
-        console.log("Priority:", priority); // Debugging line
-
-        if (priority) {
-            createTaskBubble(priority, description);
-        }
-    });
-
-
-    function saveTasksToLocalStorage() {
-        // Get the current task list from the page
-        const tasks = Array.from(taskList.querySelectorAll('.bubble')).map(taskBubble => {
-            const priority = taskBubble.className.split(' ').find(className => ['low-priority', 'medium-priority', 'high-priority'].includes(className));
-            const description = taskBubble.querySelector('.task-details').textContent;
-            return { priority, description };
-        });
-
-        // Save the task list to local storage
-        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 });
