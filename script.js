@@ -45,7 +45,7 @@ const salesmenData = {
     James: {
         email: "james.hunter@gak.co.uk",
         phone: "01273 665",
-        abrev: "RB",
+        abrev: "JH",
         iconPath: './assets/icons/james-hunter.png',
         altName: "James"
     },
