@@ -726,7 +726,7 @@ GAK`,
 
 {{salesman}} here from GAK, thanks for getting in touch. 
 
-I am pleased to say the {{product}} is currently in stock. The best price I can offer for a cash purchase is {{bestPrice}}. How would that sound?
+I am pleased to say the {{product}} is currently in stock. The best price I can offer for a cash purchase is £{{bestPrice}}. How would that sound?
 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime to proceed. 
 
