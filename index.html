@@ -40,7 +40,7 @@
         </div>
         <header class="site-header">
             <button class="header-button tab-button active" id="tab1-button">Email Templates</button>
-            <button class="header-button tab-button" id="tab2-button">Tasks</button>
+            <button class="header-button tab-button" id="tab2-button">To Do List</button>
             <button class="header-button tab-button" id="tab3-button">Tab 3</button>
             <button class="header-button tab-button" id="tab4-button">Tab 4</button>
         </header>
@@ -54,6 +54,7 @@
             <div id="tab1" class="tab-content active">
                 <!-- Form container -->
                 <div class="form-container">  
+                    <h2>Email Templates</h2>
                     <button id="clearFieldsButton" class="clear-button">Clear All</button> 
                     <div id="fieldsClearedMessage" class="message hidden">Fields Cleared</div>  
                     <!-- Salesman dropdown -->
@@ -200,7 +201,7 @@
                         
                         <!-- Updated textarea with rows, maxlength, and required attributes -->
                         <label for="taskDescription"></label>
-                        <textarea id="taskDescription" rows="1" placeholder="Enter Task Details Here" maxlength="75" required></textarea>
+                        <textarea id="taskDescription" rows="1" placeholder="Enter Task Details Here" maxlength="56" required></textarea>
                         <div class="task-buttons-container">
                             <button type="button" id="addTaskButton" class="task-button add-task-button">Add Task</button>
                             <button type="button" id="clearTaskButton" class="task-button">Clear All</button>
@@ -241,7 +242,6 @@
         </div>
             <div id="tab4" class="tab-content hidden">
                 <!-- Content for Tab 4 -->
-                <h1>Other Templates</h1>
                 <p>This is the content for Tab 4.</p>
             </div>
         </div>

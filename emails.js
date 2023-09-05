@@ -161,12 +161,15 @@ tabButtons.forEach((button) => {
     });
 });
 
+function generateSalesmanIcons() {
+    // Retrieve the selected salesman from local storage
+    const selectedSalesmanFromStorage = localStorage.getItem('selectedSalesman');
+    const selectedIconPathFromStorage = localStorage.getItem('selectedSalesmanIcon');
 
-
-  
-
-// Function to generate salesman icons
-function generateSalesmanIcons(selectedSalesman = 'Charlie') {
+    // Set the default selected salesman in the <select> element
+    if (selectedSalesmanFromStorage) {
+        callbackSalesmanSelect.value = selectedSalesmanFromStorage;
+    }
 
     for (const salesmanName in salesmenData) {
         const salesman = salesmenData[salesmanName];
@@ -187,12 +190,21 @@ function generateSalesmanIcons(selectedSalesman = 'Charlie') {
             const selectedSalesman = iconElement.getAttribute('data-salesman');
             document.getElementById('salesman').value = selectedSalesman;
             updateEmailPreview();
+
+            // Store the selected salesman and their icon in local storage
+            localStorage.setItem('selectedSalesman', selectedSalesman);
+            localStorage.setItem('selectedSalesmanIcon', salesman.iconPath);
         });
+
+        // Append the icon element to the container (e.g., a div with the id 'salesman-icons-container')
+        document.getElementById('salesman-icons-container').appendChild(iconElement);
     }
 
-    // Set the default icon based on the selected salesman
-    const defaultIcon = salesmenData[selectedSalesman].iconPath;
-    document.getElementById('player-icon-image').src = defaultIcon;
+    // Set the default icon based on the selected salesman from local storage
+    const defaultIconImage = document.getElementById('player-icon-image');
+    if (selectedSalesmanFromStorage && selectedIconPathFromStorage) {
+        defaultIconImage.src = selectedIconPathFromStorage;
+    } // No need for an 'else' block to set the default icon here
 }
 
 // Call the function to generate the icons on page load
@@ -200,11 +212,6 @@ window.addEventListener('load', function () {
     generateSalesmanIcons();
 });
 
-// Get a reference to the player icon image element
-const playerIconImage = document.getElementById('player-icon-image');
-
-// Set the default icon to Charlie's icon
-playerIconImage.src = salesmenData['Charlie'].iconPath;
 
 // Get references to your dropdown elements
 const salesmanDropdown = document.getElementById('salesman');
