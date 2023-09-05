@@ -649,7 +649,7 @@ label[for="stockDate"] {
 
 /* Form container styles */
 .task-form-container {
-    /* Add this to make the container a reference for absolute positioning */
+    position: relative;
     max-width: 641px;
     margin: 0 auto;
     margin-top: 38.5px;
@@ -665,23 +665,31 @@ label[for="stockDate"] {
 
 #taskSorter {
     padding: 8px;
-    font-size: 16px;
+    font-size: 14px;
     border: 1px solid #ccc;
-    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px; /* Add margin to separate it from other elements */
-    width: 100%; /* Ensure the dropdown takes the full width of its container */
-    top: 10%
+    margin-top: 10px;
+    width: 15%;
+    position: absolute;
+    right: 20px;
+    top: 489px; /* Move the container down by 30 pixels */
+    border-radius: 20px;
+    height: 35px;
+    font-family: 'Staatliches', cursive;
 }
 
 #taskSorter option {
-    font-size: 16px;
+    font-size: 12px;
     background-color: #fff;
+    font-family: 'arial', cursive;
+
 }
 
 #taskSorter:hover {
     background-color: #f0f0f0;
 }
+
+
 
 
 
@@ -694,10 +702,16 @@ label[for="stockDate"] {
     
 }
 
-.priority-icon {
-    cursor: pointer;
-    
+.priority-icons-container {
+    display: flex; /* You can also use 'inline-block' if you prefer that layout */
+    align-items: center; /* To vertically align the icons */
 }
+
+/* Style for individual priority icons */
+.priority-icon {
+    margin-right: 10px; /* Add some spacing between icons if needed */
+}
+
 
 .priority-icon input[type="radio"] {
     display: none; /* Hide the radio buttons */

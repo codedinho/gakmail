@@ -195,9 +195,6 @@ function generateSalesmanIcons() {
             localStorage.setItem('selectedSalesman', selectedSalesman);
             localStorage.setItem('selectedSalesmanIcon', salesman.iconPath);
         });
-
-        // Append the icon element to the container (e.g., a div with the id 'salesman-icons-container')
-        document.getElementById('salesman-icons-container').appendChild(iconElement);
     }
 
     // Set the default icon based on the selected salesman from local storage
@@ -426,27 +423,6 @@ function hideUnusedFields(templateName) {
         } else {
             // Always show the "Headline Suggestion" input field
             inputElement.style.display = 'block';
-            label.style.display = 'block';
-        }
-    });
-
-    selectElements.forEach(selectElement => {
-        const fieldId = selectElement.id;
-        const label = document.querySelector(`label[for="${fieldId}"]`);
-        const shouldHide = !placeholders.some(placeholder => placeholder.includes(fieldId));
-
-        if (fieldId !== 'taskPriority' && fieldId !== 'taskDay') {
-            // Exclude the "taskPriority" and "taskDay" dropdowns from hiding logic
-            if (shouldHide) {
-                selectElement.style.display = 'none';
-                label.style.display = 'none';
-            } else {
-                selectElement.style.display = 'block';
-                label.style.display = 'block';
-            }
-        } else {
-            // Always show the "taskPriority" and "taskDay" dropdowns
-            selectElement.style.display = 'block';
             label.style.display = 'block';
         }
     });

@@ -177,7 +177,7 @@
                     <h1>To Do List</h1>
                     <!-- Task input form -->
                     <form id="taskForm">
-                        <label>Select A Task Priority:</label>
+                        <label for="taskDescription">Select A Task Priority: <span id="selectedTaskPriority"></span></label>
                         <div class="priority-icons">
                             <div class="priority-icon">
                                 <input type="radio" id="high-priority" name="priority" value="high">
@@ -197,8 +197,12 @@
                                     <img src="./assets/icons/low-priority.png" alt="Low Priority">
                                 </label>
                             </div>
+                            
                         </div>
-                        
+                        <select id="taskSorter">
+                            <option value="lowToHigh">High to Low</option>
+                            <option value="highToLow">Low to High</option>
+                        </select>  
                         <!-- Updated textarea with rows, maxlength, and required attributes -->
                         <label for="taskDescription"></label>
                         <textarea id="taskDescription" rows="1" placeholder="Enter Task Details Here" maxlength="56" required></textarea>
@@ -207,12 +211,7 @@
                             <button type="button" id="clearTaskButton" class="task-button">Clear All</button>
                         </div>                        
                     </form>
-
-                    <label for="taskSorter">Sort by Priority:</label>
-                    <select id="taskSorter">
-                        <option value="highToLow">High to Low</option>
-                        <option value="lowToHigh">Low to High</option>
-                    </select>
+                  
 
             
                     <!-- Task list display -->
