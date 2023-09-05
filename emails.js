@@ -161,53 +161,6 @@ tabButtons.forEach((button) => {
     });
 });
 
-function generateSalesmanIcons() {
-    // Retrieve the selected salesman from local storage
-    const selectedSalesmanFromStorage = localStorage.getItem('selectedSalesman');
-    const selectedIconPathFromStorage = localStorage.getItem('selectedSalesmanIcon');
-
-    // Set the default selected salesman in the <select> element
-    if (selectedSalesmanFromStorage) {
-        callbackSalesmanSelect.value = selectedSalesmanFromStorage;
-    }
-
-    for (const salesmanName in salesmenData) {
-        const salesman = salesmenData[salesmanName];
-        const iconElement = document.createElement('div');
-        iconElement.classList.add('salesman-icon');
-        iconElement.setAttribute('data-salesman', salesmanName); // Store the salesman name as a data attribute
-
-        // Create an image element for the icon
-        const iconImage = document.createElement('img');
-        iconImage.src = salesman.iconPath;
-        iconImage.alt = salesmanName;
-
-        iconElement.appendChild(iconImage);
-
-        // Attach a click event listener to each icon
-        iconElement.addEventListener('click', function () {
-            // Handle icon click event here
-            const selectedSalesman = iconElement.getAttribute('data-salesman');
-            document.getElementById('salesman').value = selectedSalesman;
-            updateEmailPreview();
-
-            // Store the selected salesman and their icon in local storage
-            localStorage.setItem('selectedSalesman', selectedSalesman);
-            localStorage.setItem('selectedSalesmanIcon', salesman.iconPath);
-        });
-    }
-
-    // Set the default icon based on the selected salesman from local storage
-    const defaultIconImage = document.getElementById('player-icon-image');
-    if (selectedSalesmanFromStorage && selectedIconPathFromStorage) {
-        defaultIconImage.src = selectedIconPathFromStorage;
-    } // No need for an 'else' block to set the default icon here
-}
-
-// Call the function to generate the icons on page load
-window.addEventListener('load', function () {
-    generateSalesmanIcons();
-});
 
 
 // Get references to your dropdown elements
@@ -423,6 +376,27 @@ function hideUnusedFields(templateName) {
         } else {
             // Always show the "Headline Suggestion" input field
             inputElement.style.display = 'block';
+            label.style.display = 'block';
+        }
+    });
+
+    selectElements.forEach(selectElement => {
+        const fieldId = selectElement.id;
+        const label = document.querySelector(`label[for="${fieldId}"]`);
+        const shouldHide = !placeholders.some(placeholder => placeholder.includes(fieldId));
+
+        if (fieldId !== 'taskPriority' && fieldId !== 'taskDay') {
+            // Exclude the "taskPriority" and "taskDay" dropdowns from hiding logic
+            if (shouldHide) {
+                selectElement.style.display = 'none';
+                label.style.display = 'none';
+            } else {
+                selectElement.style.display = 'block';
+                label.style.display = 'block';
+            }
+        } else {
+            // Always show the "taskPriority" and "taskDay" dropdowns
+            selectElement.style.display = 'block';
             label.style.display = 'block';
         }
     });
@@ -702,7 +676,7 @@ GAK`,
 
 {{salesman}} here from GAK, thanks for getting in touch. 
 
-I am pleased to say the {{product}} is currently in stock. The best price I can offer for a cash purchase is £{{bestPrice}}. How would that sound?
+I am pleased to say the {{product}} is currently in stock. The best price I can offer for a cash purchase is {{bestPrice}}. How would that sound?
 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime to proceed. 
 
