@@ -49,6 +49,10 @@
 h1 {
     text-align: center;
     font-family: 'Staatliches', cursive;
+    color: #242424;
+    font-size: 60px;
+    margin-top:  60px;
+    margin-bottom: 10px;
 }
 
 body {
@@ -95,7 +99,7 @@ label {
     margin-top: 15px;
     margin-bottom: 15px;
     font-weight: bold;
-    color: #292929; 
+    color: #242424; 
     font-size: 21px;
     font-family: 'Staatliches', cursive;
 }
@@ -584,17 +588,24 @@ label[for="stockDate"] {
     width: 100%;
     height: 48px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: none;
+    border-radius: 20px;
     font-size: 16px;
     box-sizing: border-box;
     line-height: 25px;
     font-family: 'Arial', cursive;
     text-align: center; /* Center text within the form */
-    overflow: auto;
-    margin-bottom: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: -20px;
     resize: none; /* Prevent user from resizing the text box */
 }
+
+/* Remove border when input is focused */
+#taskDescription:focus {
+    outline: none; /* Remove the default focus outline */
+}
+
 
 
 /* Style for the form (centering the button) */
@@ -605,9 +616,12 @@ label[for="stockDate"] {
     text-align: center; /* Center text within the form */
 }
 
-/* Style for the Add Task button */
-#addTaskButton {
-    background-color: rgb(219, 51, 51);
+
+/* Style for Add Task and Clear Task buttons (applies to both) */
+.task-button {
+    width: 120px;
+    margin: 20px;
+    background-color: rgb(219, 51, 51, 0.7);
     color: #fff;
     border: none;
     border-radius: 20px;
@@ -615,15 +629,38 @@ label[for="stockDate"] {
     padding: 15px 25px;
     font-size: 16px;
     cursor: pointer;
-    margin-bottom: 50px;
-    margin-top: 15px;
     font-family: 'Staatliches', cursive;
-    font-size: 20px;
+    font-size: 18px;
+    box-shadow: 0px 2.5px 2.5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s, opacity 0.5s;
+    margin-bottom: 60px;
+    border-radius: 1000px;
+    height: 50px;
 }
 
-/* Hover effect for the Add Task button */
-#addTaskButton:hover {
-    background-color: rgb(219, 51, 51, 0.8);
+.task-button:hover {
+    background-color: rgb(219, 51, 51); /* Change the background color to your desired color */
+    box-shadow: 0px 2.5px 2.5px rgba(0, 0, 0, 1);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Style for Add Task button */
+.add-task-button {
+    background-color: rgb(51, 102, 219, 0.7); /* Change the background color to your desired color */
+    /* Rest of the button styles */
+}
+
+/* Style for Add Task button */
+.add-task-button:hover {
+    background-color: rgb(51, 102, 219); /* Change the background color to your desired color */
+    box-shadow: 0px 2.5px 2.5px rgba(0, 0, 0, 1);
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+/* Style for Add Task and Clear Task buttons on hover (applies to both) */
+.task-button:hover {
+    transform: scale(1.02); /* Increase size on hover */
+    opacity: 1; /* Reduce opacity on hover */
 }
 
 /* Form container styles */
@@ -639,15 +676,43 @@ label[for="stockDate"] {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);  
 }
 
+
+/* Add this CSS to your stylesheet or <style> tag in the <head> section */
+
+#taskSorter {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Add margin to separate it from other elements */
+    width: 100%; /* Ensure the dropdown takes the full width of its container */
+    top: 10%
+}
+
+#taskSorter option {
+    font-size: 16px;
+    background-color: #fff;
+}
+
+#taskSorter:hover {
+    background-color: #f0f0f0;
+}
+
+
+
 /* Style for the task priority icons */
 .priority-icons {
+    margin-top: -10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .priority-icon {
     cursor: pointer;
+    
 }
 
 .priority-icon input[type="radio"] {
@@ -663,14 +728,21 @@ label[for="stockDate"] {
     width: 58px; /* Adjust icon size as needed */
     opacity: 0.6;
     margin: 10px;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.5s, opacity 0.5s;
 }
 
-/* Increase size and decrease opacity for selected icon */
-.priority-icon input[type="radio"]:checked + label img {
-    transform: scale(1.1);
+/* Increase size and change opacity when hovering */
+.priority-icon:hover img {
+    transform: scale(1.2);
     opacity: 1;
 }
+
+/* Increase size and change opacity for selected icon */
+.priority-icon input[type="radio"]:checked + label img {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
 
 
 /* Style for the labels */
@@ -691,6 +763,7 @@ label {
     color: lightgray; /* Light gray color for timestamp */
     font-family: 'Arial', cursive;
     align-self: center; /* Align timestamp to the flex-end (right) */
+    font-style: italic;
 }
 
 
@@ -700,7 +773,7 @@ label {
 }
 
 .bubble {
-    background-color: rgb(43, 43, 43); /* Default bubble color */
+    background-color: rgb(43, 43, 43, 0.6); /* Default bubble color */
     color: #fff;
     border-radius: 20px;
     padding: 10px 15px;
@@ -714,7 +787,23 @@ label {
     margin-bottom: 10px; /* Add margin between bubbles */
     overflow: hidden;
     height: 78px;
+    font-family: Arial;
+    font-size: 18px;
 }
+
+/* Add a hover effect for the bubble */
+.bubble:hover {
+    transform: scale(1.01); /* Slightly enlarge the bubble on hover */
+    transition: transform 0.2s;
+
+}
+
+/* Add a hover effect for the icon inside the bubble */
+.bubble:hover .priority-icon img {
+    content: url('./assets/icons/complete.png'); /* Change the icon on hover */
+    
+}
+
 
 .task-details {
     flex-grow: 1; /* Allow the task-details to grow and take available space */
@@ -750,8 +839,150 @@ label {
     float: left; /* Float the image to the left */
 }
 
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
 
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
+/* Round Buttons */
+.confirm-button, .cancel-button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.confirm-button {
+    background-color: #000; /* Button color */
+    color: white;
+}
+
+.cancel-button {
+    background-color: #ccc; /* Button color */
+    color: #000;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 300px;
+    font-size: 18px;
+}
+
+/* Style for the buttons inside the modal and Clear Task Modal */
+.modal-content button,
+#clearTaskModal button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    padding: 15px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+    box-shadow: 0px 2.5px 2.5px rgba(0, 0, 0, 0.3);
+    margin: 5px;
+}
+
+/* Style for the cancel button (inside the modal) */
+.modal-content #cancelButton {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Style for the Clear Task Modal (same style as the previous modal) */
+#clearTaskModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Style for the Clear Task Modal Content */
+#clearTaskModal .modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+}
+
+/* Style for the buttons inside the Clear Task Modal on hover (same hover style as before) */
+#clearTaskModal button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Style for the Clear Task Modal "No" button (same style as the previous modal) */
+#clearTaskModal #cancelClearButton {
+    background-color: #ccc;
+    color: black;
+}
+
+/* Style for the notification container */
+.notification {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 9999;
+}
+
+/* Style for the hidden notification */
+.notification.hidden {
+    display: none;
+}
 
 
 

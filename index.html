@@ -172,11 +172,11 @@
             </div>
             <div id="tab2" class="tab-content">
                 <!-- Content for Tab 2 -->
-                <h1>Salesman Task List</h1>
                 <div class="task-form-container">
+                    <h1>To Do List</h1>
                     <!-- Task input form -->
                     <form id="taskForm">
-                        <label>Task Priority:</label>
+                        <label>Select A Task Priority:</label>
                         <div class="priority-icons">
                             <div class="priority-icon">
                                 <input type="radio" id="high-priority" name="priority" value="high">
@@ -197,19 +197,45 @@
                                 </label>
                             </div>
                         </div>
+                        
+                        <!-- Updated textarea with rows, maxlength, and required attributes -->
                         <label for="taskDescription"></label>
-                        <textarea id="taskDescription" rows="4" placeholder="Enter task description (max 75 characters)" maxlength="75" required></textarea>
-                        <button type="button" id="addTaskButton">Add Task</button>
+                        <textarea id="taskDescription" rows="1" placeholder="Enter Task Details Here" maxlength="75" required></textarea>
+                        <div class="task-buttons-container">
+                            <button type="button" id="addTaskButton" class="task-button add-task-button">Add Task</button>
+                            <button type="button" id="clearTaskButton" class="task-button">Clear All</button>
+                        </div>                        
                     </form>
+
+                    <label for="taskSorter">Sort by Priority:</label>
+                    <select id="taskSorter">
+                        <option value="highToLow">High to Low</option>
+                        <option value="lowToHigh">Low to High</option>
+                    </select>
+
             
                     <!-- Task list display -->
+                    <label>Active Task list:</label>
                     <div id="taskList" class="bubble-container">
                         <!-- Task bubbles will be dynamically added here -->
                     </div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <p>Are you sure you want to complete this task?</p>
+                            <button id="confirmButton">Yes</button>
+                            <button id="cancelButton">No</button>
+                        </div>
+                    </div>     
+                    <div id="clearTaskModal" class="modal">
+                        <div class="modal-content">
+                            <p>Are you sure you want to clear all tasks?</p>
+                            <button id="confirmClearButton">Yes</button>
+                            <button id="cancelClearButton">No</button>
+                        </div>
+                    </div>                                                    
                 </div>            
             <div id="tab3" class="tab-content hidden">
                 <!-- Content for Tab 3 -->
-                <h1>Other Templates</h1>
                 <p>This is the content for Tab 3.</p>
             </div>
         </div>
