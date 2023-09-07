@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
     <!-- Favicon -->
@@ -20,7 +21,7 @@
 
     <!-- Axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
+</head>
     <body>
         <div id="background-container"></div>
         <!-- Popup for password input -->
@@ -40,8 +41,8 @@
         </div>
         <header class="site-header">
             <button class="header-button tab-button active" id="tab1-button">Email Templates</button>
-            <button class="header-button tab-button" id="tab2-button">To Do List</button>
-            <button class="header-button tab-button" id="tab3-button">Tab 3</button>
+            <button class="header-button tab-button" id="tab2-button">Daily Tasks</button>
+            <button class="header-button tab-button" id="tab3-button">Quote Follow Up</button>
             <button class="header-button tab-button" id="tab4-button">Tab 4</button>
         </header>
 
@@ -49,8 +50,6 @@
         <div id="player-icon">
             <img id="player-icon-image" src="" alt="">
         </div>
-        
-        <div id="content-container">
             <div id="tab1" class="tab-content active">
                 <!-- Form container -->
                 <div class="form-container">  
@@ -59,8 +58,7 @@
                     <div id="fieldsClearedMessage" class="message hidden">Fields Cleared</div>  
                     <!-- Salesman dropdown -->
                     <label for="salesman">Select User</label>
-                    <select id="salesman" class="custom-dropdown">
-                    </select>     
+                    <select id="salesman" class="custom-dropdown"></select>     
                     <!-- Template dropdown -->
                     <label for="template">Select Template:</label>
                     
@@ -84,7 +82,7 @@
                     </select>
 
                     <label for="callbackSalesman">FAO:</label>
-                    <select id="callbackSalesman" class="custom-dropdown"></select> 
+                    <select id="callbackSalesman" class="custom-dropdown"></select>
 
                     <label for="callbackType">Customer Request:</label>
                     <select id="callbackType" class="custom-dropdown">
@@ -171,10 +169,10 @@
                     <div id="tooltip" class="hidden">Alright mate</div>
                 </div>
             </div>
-            <div id="tab2" class="tab-content">
+            <div id="tab2" class="tab-content hidden">
                 <!-- Content for Tab 2 -->
                 <div class="task-form-container">
-                    <h1>To Do List</h1>
+                    <h1>Daily Tasks</h1>
                     <!-- Task input form -->
                     <form id="taskForm">
                         <label>Select A Task Priority:</label>
@@ -234,23 +232,57 @@
                             <button id="cancelClearButton">No</button>
                         </div>
                     </div>                                                    
-                </div>            
-            <div id="tab3" class="tab-content hidden">
-                <!-- Content for Tab 3 -->
-                <p>This is the content for Tab 3.</p>
+                </div>      
+            </div> 
+        </div>       
+        <div id="tab3" class="tab-content hidden">
+            <!-- Content for Tab 3 -->
+            <div id="quoteBox" class="quote-box-container">
+                <h2>Customer Leads</h2>
+                <div class="input-container">
+                    <!-- First Row -->
+                    <div class="input-row">
+                        <div class="input-field">
+                            <label for="quoteReference">Quote Ref</label>
+                            <textarea id="quoteReference" class="half-width-textarea" rows="1" placeholder="Quote Ref" maxlength="60" required></textarea>
+                        </div>
+                        <div class="input-field">
+                            <label for="quoteCustomerName">Name</label>
+                            <textarea id="quoteCustomerName" class="half-width-textarea" rows="1" placeholder="Customer Name" maxlength="60" required></textarea>
+                        </div>
+                    </div>
+                    <!-- Second Row -->
+                    <div class="input-row">
+                        <div class="input-field">
+                            <label for="quoteCustomerPhone">Phone</label>
+                            <textarea id="quoteCustomerPhone" class="half-width-textarea" rows="1" placeholder="Customer Phone" maxlength="60" required></textarea>
+                        </div>
+                        <div class="input-field">
+                            <label for="quoteCustomerEmail">Email</label>
+                            <textarea id="quoteCustomerEmail" class="half-width-textarea" rows="1" placeholder="Customer Email" maxlength="60" required></textarea>
+                        </div>
+                    </div>
+                    <!-- Description -->
+                    <div class="description-container">
+                        <label for="quoteDescription">Notes</label>
+                        <textarea id="quoteDescription" rows="4" placeholder="Optional Notes" maxlength="80" required></textarea>
+                        <button id="sendButton">Send</button>
+                    </div>
+                <div id="quoteBubbleContainer"></div>
             </div>
-        </div>
-            <div id="tab-container">
-                <div id="tab4" class="tab-content hidden">
+        </div>                       
+            <div id="tab4" class="tab-content hidden">
+                <h1>This is the content for Tab 4.</h1>
                     <!-- Content for Tab 4 -->
-                    <p>This is the content for Tab 4.</p>
+                    <div id="testBox" class="black-box">
+                        <h2>Tab 4</h2>
+                    </div>
                 </div>
             </div>
-            
 
     <!-- JavaScript files -->
 <script src="emails.js"></script>
 <script src="tasks.js"></script>
-
+<script src="quotes.js"></script>
 </body>
 </html>

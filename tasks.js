@@ -1,3 +1,11 @@
+// Define removeAllTasks
+function removeAllTasks() {
+    const taskList = document.getElementById('taskList');
+    while (taskList.firstChild) {
+        taskList.removeChild(taskList.firstChild);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const taskForm = document.getElementById('taskForm');
     const taskList = document.getElementById('taskList');
@@ -5,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const highPriorityButton = document.getElementById('high-priority');
     const mediumPriorityButton = document.getElementById('medium-priority');
     const lowPriorityButton = document.getElementById('low-priority');
+    const selectedPriorityLabel = document.getElementById('selected-priority-label'); // Add this line
     let savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     // Function to remove all child elements from taskList
@@ -42,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Function to show a notification
 function showNotification(message, duration) {
+
     // Create a notification element
     const notification = document.createElement('div');
     notification.className = 'notification';
@@ -90,11 +100,11 @@ function showNotification(message, duration) {
         // Clear the form inputs
         taskDescription.value = '';
 
-        // Reset priority buttons
-        resetPriorityButtons();
+
 
         // Save the task to local storage with the icon
         saveTaskToLocalStorage(taskPriority, taskDescriptionValue, taskIcon);
+
     });
 
     function saveTaskToLocalStorage(priority, description, icon) {
@@ -156,9 +166,14 @@ function showNotification(message, duration) {
         taskBubble.className = `bubble ${priorityClass}`;
         taskBubble.innerHTML = `
             <img src="${icon}" alt="Priority Icon" class="priority-icon">
-            <p class="task-details">${description}</p>
+            <div class="title-container">
+                <p class="date">${getCurrentDate()}</p> <!-- Date as a title -->
+                <p class="task-details">${description}</p>
+            </div>
             <p class="timestamp">${getCurrentTimestamp()}</p>
         `;
+    
+        
     
         // Get the priority icon element
         const priorityIcon = taskBubble.querySelector('.priority-icon');
@@ -203,7 +218,16 @@ function showNotification(message, duration) {
     
         // Append the task bubble to the task list
         taskList.appendChild(taskBubble);
-    }    
+    }
+    
+    // Function to get the current date in the format "MM/DD/YYYY"
+    function getCurrentDate() {
+        const now = new Date();
+        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+        const day = now.getDate().toString().padStart(2, '0');
+        const year = now.getFullYear();
+        return `${month}/${day}/${year}`;
+    }          
 });
 
 // Add an event listener to the task sorter drop-down
@@ -220,23 +244,29 @@ function sortTasks(sortOption) {
     // Convert the NodeList to an array for easier sorting
     const taskArray = Array.from(taskBubbles);
 
-    // Sort the tasks based on the selected option
+    // Define a custom sorting order for priorities
+    const priorityOrder = ['high', 'medium', 'low'];
+
+    // You can also call removeAllTasks here if needed
+    removeAllTasks();
+
+    // Sort the tasks based on the selected option and priority order
     taskArray.sort(function (taskA, taskB) {
         const priorityA = getTaskPriority(taskA);
         const priorityB = getTaskPriority(taskB);
 
         if (sortOption === 'highToLow') {
             // Sort from high to low priority
-            if (priorityA === 'high' && priorityB !== 'high') {
+            if (priorityOrder.indexOf(priorityA) > priorityOrder.indexOf(priorityB)) {
                 return -1;
-            } else if (priorityA !== 'high' && priorityB === 'high') {
+            } else if (priorityOrder.indexOf(priorityA) < priorityOrder.indexOf(priorityB)) {
                 return 1;
             }
         } else if (sortOption === 'lowToHigh') {
             // Sort from low to high priority
-            if (priorityA === 'low' && priorityB !== 'low') {
+            if (priorityOrder.indexOf(priorityA) < priorityOrder.indexOf(priorityB)) {
                 return -1;
-            } else if (priorityA !== 'low' && priorityB === 'low') {
+            } else if (priorityOrder.indexOf(priorityA) > priorityOrder.indexOf(priorityB)) {
                 return 1;
             }
         }
@@ -253,6 +283,8 @@ function sortTasks(sortOption) {
         taskList.appendChild(task);
     });
 }
+
+
 
 // Function to get the priority of a task bubble
 function getTaskPriority(taskBubble) {
@@ -276,6 +308,8 @@ taskDescription.addEventListener('keydown', function (event) {
         event.preventDefault();
     }
 });
+
+
 
 // JavaScript code to clear all active tasks and update local data
 const clearTaskButton = document.getElementById('clearTaskButton');

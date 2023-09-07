@@ -44,7 +44,7 @@ const salesmenData = {
     },
     James: {
         email: "james.hunter@gak.co.uk",
-        phone: "01273 665",
+        phone: "01273 665000",
         abrev: "JH",
         iconPath: './assets/icons/james-hunter.png',
         altName: "James"
@@ -108,7 +108,7 @@ const salesmenData = {
 };
 
 // Select the <select> element by its ID
-const callbackSalesmanSelect = document.getElementById('callbackSalesman');
+const salesmanSelect = document.getElementById('salesman');
 
 // Loop through the salesmenData object to populate the <select> element
 for (const salesman in salesmenData) {
@@ -121,15 +121,60 @@ for (const salesman in salesmenData) {
         option.value = salesman;
         
         // Append the <option> to the <select>
+        salesmanSelect.appendChild(option);
+    }
+}
+
+// Add an event listener to the salesman dropdown
+salesmanSelect.addEventListener('change', function () {
+    const selectedSalesman = salesmanSelect.value;
+    
+    // Save the selected salesman to localStorage
+    localStorage.setItem('selectedSalesman', selectedSalesman);
+    
+    // Call the function to update the email preview
+    updateEmailPreview();
+});
+
+
+// Call the function to generate the icons on page load
+document.addEventListener('DOMContentLoaded', function () {
+    // Load the previously selected salesman from localStorage (if available)
+    const savedSalesman = localStorage.getItem('selectedSalesman');
+    if (savedSalesman) {
+        // Set the dropdown value to the saved salesman
+        salesmanSelect.value = savedSalesman;
+    }
+    
+    // Call updateEmailPreview on page load
+    updateEmailPreview();
+});
+
+// Select the <select> element for the callback salesman by its ID
+const callbackSalesmanSelect = document.getElementById('callbackSalesman');
+
+// Loop through the salesmenData object to populate the callback salesman <select> element
+for (const salesman in salesmenData) {
+    if (salesmenData.hasOwnProperty(salesman)) {
+        // Create an <option> element
+        const option = document.createElement('option');
+        
+        // Set the text and value of the <option>
+        option.textContent = salesman;
+        option.value = salesman;
+        
+        // Append the <option> to the callback salesman <select>
         callbackSalesmanSelect.appendChild(option);
     }
 }
 
-
-// Call the function to generate the icons on page load
-window.addEventListener('load', function () {
-    updateEmailPreview(); // Call updateEmailPreview on page load
+// Add an event listener to the callback salesman dropdown
+callbackSalesmanSelect.addEventListener('change', function () {
+    // Call the function to update the email preview when the callback salesman is changed
+    updateEmailPreview();
 });
+
+
 
 
 // Get all tab buttons and tab contents
@@ -158,9 +203,11 @@ tabButtons.forEach((button) => {
         // Show the corresponding tab content
         const tabContent = document.getElementById(tabId);
         tabContent.classList.add("active");
+
+        // Log a message after switching tabs
+        console.log("Switched to tab content:", tabId);
     });
 });
-
 
 
 // Get references to your dropdown elements
@@ -192,22 +239,6 @@ salesmanDropdown.classList.add('custom-dropdown');
 templateDropdown.classList.add('custom-dropdown');
 faultTypeDropdown.classList.add('custom-dropdown');
 
-
-// Populate the salesman dropdown
-for (const salesmanName in salesmenData) {
-    const option = document.createElement('option');
-    option.value = salesmanName;
-    option.textContent = salesmanName;
-
-
-    salesmanDropdown.appendChild(option);
-}
-
-// Add an event listener to the template dropdown
-templateDropdown.addEventListener('change', function () {
-    const selectedTemplate = templateDropdown.value;
-    hideUnusedFields(selectedTemplate);
-});
 
 
 // Initial call to set visibility based on the initial template selection
@@ -278,8 +309,7 @@ function updateEmailPreview() {
     // You need to define and initialize emailContent
     const emailTemplate = getEmailTemplate(template);
 
-    const salesmanDropdown = document.getElementById('salesman');
-    const selectedOption = salesmanDropdown.options[salesmanDropdown.selectedIndex];
+
 
     const salesmanData = salesmenData[salesmanName];
 

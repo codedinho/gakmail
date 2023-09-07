@@ -6,7 +6,7 @@
     position: absolute; 
     top: 0; 
     left: 0; 
-    z-index: 100;
+    z-index: 1000;
     display: flex; 
     justify-content: center;
     align-items: center; 
@@ -239,7 +239,7 @@ select {
     transition: background-color 0.3s ease, transform 0.3s ease; 
     text-align: center;
     line-height: 80px;
-    z-index: 999;
+    z-index: 1000;
     font-weight: 800;
     font-size: 24px;
     font-family: 'Staatliches', cursive;
@@ -312,11 +312,6 @@ select {
     font-size: 24px;
 }
 
-/* Hidden element style */
-.hidden {
-    display: none;
-}
-
 /* Label style for "stockDate" */
 label[for="stockDate"] {
     display: block;
@@ -347,7 +342,7 @@ label[for="stockDate"] {
     background-color: #f0f0f0;
     border-radius: 50%;
     overflow: hidden;
-    z-index: 100;
+    z-index: 9998;
 }
 
 #player-icon:hover {
@@ -397,7 +392,7 @@ label[for="stockDate"] {
     text-align: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    z-index: 10000; 
+    z-index: 9999; 
 }
 
 /* Center the popup and apply a blur filter to the background when the popup is displayed */
@@ -405,7 +400,7 @@ label[for="stockDate"] {
     display: flex;
     backdrop-filter: blur(10px);
     background: rgba(0, 0, 0, 0.91);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 /* Password input styles */
@@ -472,36 +467,6 @@ label[for="stockDate"] {
     outline: none;
 }
 
-
-/* CSS for chat icon */
-#chat-icon {
-    position: fixed;
-    bottom: 10px; 
-    left: 10px; 
-    width: 60px;
-    height: 60px;
-    background-color: #f0f0f0;
-    border-radius: 50%;
-    overflow: hidden;
-    z-index: 100;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); 
-}
-
-#chat-icon:hover {
-    transform: scale(1.1); 
-}
-
-#chat-icon-img {
-    width: 60px; 
-    height: 60px; 
-    transition: opacity 0.2s ease; 
-}
-
-/* Change the icon on hover */
-#chat-icon:hover #chat-icon-img {
-    content: url("./assets/icons/chat-hover.png"); 
-    opacity: 0.8; 
-}
 
 /* Custom Dropdown Styles */
 .custom-dropdown {
@@ -651,6 +616,24 @@ label[for="stockDate"] {
     border-radius: 1000px;
     height: 50px;
 }
+
+/* Add this CSS to your stylesheet */
+.task-meta {
+    display: flex;
+
+    align-items: center;
+}
+
+.date {
+    font-size: 16px; /* Adjust the font size as needed */
+    font-style: bold;
+    padding-left: 10px;
+    align-items: center;
+    padding-right: 7px;
+    font-family: 'Staatliches', cursive;
+
+}
+
 
 .task-button:hover {
     background-color: rgb(219, 51, 51); /* Change the background color to your desired color */
@@ -952,7 +935,7 @@ label {
     background-color: rgba(0, 0, 0, 0.6);
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 9999;
 }
 
 /* Style for the Clear Task Modal Content */
@@ -1000,8 +983,221 @@ label {
     display: none;
 }
 
+/* CHAT BPX\*
+/* Add this CSS rule to style the container for Tab 3 */
+.quote-box-container {
+    max-width: 641px;
+
+    margin: 0 auto;
+    margin-top: 75px;
+    margin-bottom: 0px;
+    padding: 20px;
+    padding-top: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Staatliches', cursive;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for the container of each pair of textareas */
+.input-row {
+    display: flex; /* Use flexbox to horizontally align the input fields */
+    justify-content: center; /* Distribute space between the input fields */
+    margin-bottom: 10px; /* Add some spacing between the rows */
+}
+
+#quoteDescription {
+    width: 620px;
+    height: 48px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    line-height: 26px;
+    font-family: 'Arial', cursive;
+    text-align: center; /* Center text within the form */
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    resize: none; /* Prevent user from resizing the text box */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Left-align the text within the 90px padding area */
+    outline: none; /* Remove the outline when the element is selected */
+    box-sizing: border-box;
+}
+
+/* Center-align the label for #quoteDescription */
+.description-container label {
+    display: block; /* Make the label a block-level element */
+    text-align: center; /* Center-align the text within the label */
+    margin-top: 10px; /* Add margin to separate the label from the textarea */
+}
 
 
+#sendButton {
+    position: absolute;
+    left: 50%;
+    top: 570px;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 44px;
+    border-radius: 20px;
+    width: 80px;
+    background-color: rgb(43, 43, 43);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+    justify-content: center;
+    line-height: 34px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
 
 
+#sendButton:hover {
+    background-color: rgb(219, 51, 51); /* Customize the button's style on hover */
+    color: rgb(255, 255, 255);
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
 
+/* Container for input rows */
+.input-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow input fields to wrap to the next line on smaller screens */
+    justify-content: center; /* Center the input fields horizontally */
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Style each input field */
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px; /* Add margin to create a gap between input fields */
+}
+
+/* Style labels */
+.input-field label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Style input fields */
+.input-field input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+/* Define a new CSS class for the half-width textareas */
+.half-width-textarea {
+    width: 300px; /* Full width */
+    height: 48px; /* Fixed height */
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: 'Arial', cursive;
+    overflow: hidden; /* Hide overflowing text */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-overflow: ellipsis; /* Show ellipsis (...) for overflow text */
+    margin-bottom: 10px;
+    margin-top: 0px;
+    resize: none;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+    text-align: center;
+    line-height: 48px;
+}
+
+
+/* Apply padding to an inner container */
+.half-width-textarea .inner-container {
+    padding: 10px; /* Add padding to the inner container */
+    line-height: 26px;
+    text-align: center;
+}
+/* Style for the quote bubble container */
+#quoteBubbleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 90px; /* Add margin to create space above the quote bubble */
+}
+
+/* Style for the quote bubble */
+.quote-bubble {
+    min-height: 100px; /* Adjust the value as needed */
+    width: 620px;
+    background-color: rgb(43, 43, 43, 0.6); /* Default bubble color */
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    text-align: left; /* Center-align text inside the quote bubble */
+    
+}
+
+    .quote-bubble:hover{
+        transform: scale(1.01); /* Increase size on hover */
+    }
+
+/* Style for each paragraph inside the quote bubble */
+.quote-bubble p {
+    color: #ffffff;
+    max-width: 580px;
+    margin: 0;
+    padding: 5px;
+}
+
+/* Style for the container of name, phone, and email paragraphs */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap; /* Wrap elements to the next line if they don't fit horizontally */
+    justify-content: center; /* Horizontally center-align content */
+}
+/* Style for each name, phone, and email paragraph */
+.contact-info p {
+    margin: 5px; /* Add some spacing between the paragraphs */
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 600px) {
+    .quote-bubble{
+        width: 370px;
+    }
+    .half-width-textarea {
+        width: 175px; 
+    }
+    #quoteDescription{
+        width: 370px;
+    }
+}
+
+/* CSS for the icons */
+.icon {
+    width: 54px;
+    right: 0px; /* Adjust the width as needed */
+    height: 54px; /* Adjust the height as needed */
+    transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+}
+
+/* CSS for the hover effect */
+.quote-bubble:hover .icon {
+    transform: scale(1.02); /* Increase the size of the icon on hover */
+    cursor: pointer; /* Change the cursor to a pointer on hover */
+    content: url('./assets/icons/complete.png'); /* Change the icon on hover */
+    
+}
