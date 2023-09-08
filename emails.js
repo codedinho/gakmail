@@ -30,7 +30,7 @@ const salesmenData = {
     },
     Dan: {
         email: "dan.harding@gak.co.uk",
-        phone: "01273 665406",
+        phone: "01273 665407",
         abrev: "DH",
         iconPath: './assets/icons/dan-harding.png',
         altName: "Dan"
@@ -44,7 +44,7 @@ const salesmenData = {
     },
     James: {
         email: "james.hunter@gak.co.uk",
-        phone: "01273 665000",
+        phone: "01273 665406",
         abrev: "JH",
         iconPath: './assets/icons/james-hunter.png',
         altName: "James"
