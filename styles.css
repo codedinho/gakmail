@@ -65,6 +65,12 @@ h2 {
     margin-bottom: 0px;
 }
 
+/* Style for underlined headers */
+.popup-info h3 {
+    text-decoration: underline;
+}
+
+
 body {
     font-family: 'Staatliches', cursive;
     
@@ -383,6 +389,7 @@ label[for="stockDate"] {
     align-items: center;
     border: none;
 }
+
 
 .popup-content {
     font-family: 'Staatliches', cursive;
@@ -1200,4 +1207,33 @@ label {
     cursor: pointer; /* Change the cursor to a pointer on hover */
     content: url('./assets/icons/complete.png'); /* Change the icon on hover */
     
+}
+
+/* Styles for the info icon */
+.infoIcon {
+    position: absolute;
+    cursor: pointer;
+    top: 10px; /* Adjust the top position as needed */
+    left: 10px; /* Adjust the left position as needed */
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Hover effect to increase the size */
+.infoIcon:hover {
+    transform: scale(1.2); /* Increase the size by 20% (adjust as needed) */
+}
+
+/* Styles for the info popup */
+.popup-info {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    text-align: center;
+    font-size: 20px;
 }

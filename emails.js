@@ -292,13 +292,14 @@ function updateEmailPreview() {
         paymentLink: `GAK - Payment Link - ${product}`,
         paymentLink2: `GAK - Payment Link - ${product}`,
         preOrder: `GAK - ${product}`,
-        bestPrice: `GAK - Best Price - ${product}!`,
+        bestPrice: `👋 ${name}, GAK has sent you an offer!`,
         webReturn: `GAK Web Return - ${returnNumber}`,
         unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
         stockNotificationGibson: `GAK Stock Notification - ${product}`,
+        stockNotificationEpiphone: `GAK Stock Notification - ${product}`,
         callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
         callbackType2: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
         callbackType3: `Callback for ${callbackSalesman} - Order Update - ${orderNumber}`,
@@ -574,7 +575,7 @@ function closePopup() {
 // Function to check the entered password
 function checkPassword() {
     const enteredPassword = passwordInput.value;
-    const correctPassword = 'lespaul'; // Yes, I know this isn't hidden. Well found. 
+    const correctPassword = 'lespaul'; // Yes, I know this isn't hidden. 
 
     if (enteredPassword === correctPassword) {
         // Password is correct, close the popup
@@ -585,6 +586,55 @@ function checkPassword() {
         passwordInput.value = ''; // Clear the input field
     }
 }
+
+// Get references to the info icon and info popup
+const infoIcon = document.getElementById("info-icon");
+const infoPopup = document.getElementById("info-popup");
+
+// Function to open the info popup
+function openInfoPopup(event) {
+    event.stopPropagation(); // Prevent click event from propagating
+    
+    infoPopup.style.display = "block";
+    
+    // Add a keydown event listener to the document to close the popup when pressing the "Esc" key
+    document.addEventListener("keydown", closeInfoPopupOnEsc);
+
+    // Add a click event listener to the document to close the popup when clicking outside of it
+    document.addEventListener("click", closeInfoPopupOnClick);
+}
+
+// Function to close the info popup
+function closeInfoPopup() {
+    infoPopup.style.display = "none";
+    
+    // Remove the keydown event listener
+    document.removeEventListener("keydown", closeInfoPopupOnEsc);
+
+    // Remove the click event listener
+    document.removeEventListener("click", closeInfoPopupOnClick);
+}
+
+// Function to close the info popup when pressing the "Esc" key
+function closeInfoPopupOnEsc(event) {
+    if (event.key === "Escape") {
+        closeInfoPopup();
+    }
+}
+
+// Function to close the info popup when clicking outside of it
+function closeInfoPopupOnClick(event) {
+    if (!infoPopup.contains(event.target)) {
+        closeInfoPopup();
+    }
+}
+
+// Add a click event listener to the info icon to open the info popup
+infoIcon.addEventListener("click", openInfoPopup);
+
+
+
+
 
 // Get references to the Clear button and the Fields Cleared message container
 const clearButton = document.getElementById('clearFieldsButton');
@@ -712,7 +762,7 @@ GAK`,
 
 {{salesman}} here from the GAK Mail Order team, I can see you were looking at the new {{product}}, online. As I'm sure you're aware, this is a brand new and has only just been launched and is already proving incredibly popular - not surprising really though! 
 
-A 10% deposit is all I would need to get the ball moving and a pre order set up, how does that sound?
+All being equal, we are hoping to see stock around {{stockDate}}. A 10% deposit is all I would need to get the ball moving and a pre order set up, how does that sound?
 
 If you would like to get your name down and place an order, please use either of the links below to make payment and I'll get this sorted for you.
 
@@ -720,7 +770,7 @@ Deposit: {{depositLink}}
 
 Full amount: {{paymentLink}}
 
-Alternatively, if you would like more information or a quick chat, please do not hestitate to get in touch with me on my direct line {{salesman-phone}} or email back at {{salesman-email}}
+Alternatively, if you would like more information or a quick chat, please do not hestitate to get in touch with me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
 {{salesman}}
@@ -845,6 +895,18 @@ GAK`,
 You recently requested to receive stock notification on the out of stock <b>{{product}}</b> - Great choice! 
 
 I have this on order already but unfortunately Gibson are vague with delivery dates so the best estimate I can give would be within 1-3 months. If you don't mind the wait and want to ensure you get one of the first ones back in the country, I can get the ball rolling with a 10% deposit. How does that sound?
+
+To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
+
+Kind regards,
+{{salesman}}
+GAK`,
+
+    stockNotificationEpiphone: `Hi {{name}},
+
+You recently requested to receive stock notification on the out of stock <b>{{product}}</b> - Great choice! 
+
+I have this on order already but unfortunately Epiphone are vague with delivery dates so the best estimate I can give would be within 1-3 months. If you don't mind the wait and want to ensure you get one of the first ones back in the country, I can get the ball rolling with a 10% deposit. How does that sound?
 
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 

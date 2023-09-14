@@ -54,32 +54,49 @@
                 <!-- Form container -->
                 <div class="form-container">  
                     <h2>Email Templates</h2>
-                    <button id="clearFieldsButton" class="clear-button">Clear All</button> 
-                    <div id="fieldsClearedMessage" class="message hidden">Fields Cleared</div>  
+                    <button id="clearFieldsButton" class="clear-button">Clear All</button>
+                    <div id="fieldsClearedMessage" class="message hidden">Fields Cleared</div>
+                    <div id="info-icon" class="infoIcon">
+                        <img src="./assets/icons/info.png" alt="Info">
+                    </div>
+                    <!-- Info popup -->
+                    <div id="info-popup" class="popup-info">
+                        <h2>Templates Guide</h2>
+                        <h3>Step 1</h3>
+                        <p>> Select <b>User</b> & <b>Template</b></p>
+                        <h3>Step 2</h3>
+                        <p>> Fields will only show when they are being used by the template. 
+                        <p>> Unless "optional" -<b> if the field shows, it needs to be filled.</b></p>
+                        <p>> <b>Additional information</b> fields allow you to add <b>custom information</b> to the template, these are optional but are recommended for a more personalised message.</p>
+                        <h3>Step 3</h3>
+                        <p>> Once the fields have been filled, the email & subject headline is ready to be copied.</p>
+                        <p>> If a PDF download shows, make sure to download it and include it with your email.</p>
+                        <p>> Click <b>"Clear All"</b> to reset the fields.</p>
+                    </div>
                     <!-- Salesman dropdown -->
                     <label for="salesman">Select User</label>
-                    <select id="salesman" class="custom-dropdown"></select>     
+                    <select id="salesman" class="custom-dropdown"></select>
                     <!-- Template dropdown -->
-                    <label for="template">Select Template:</label>
-                    
+                    <label for="template">Select Template:</label>                  
                     <select id="template" class="custom-dropdown">
                         <option value="paymentLink">Payment Link #1</option>
                         <option value="paymentLink2">Payment Link #2</option>
-                        <option value="callbackType">CECB General #1</option>
-                        <option value="callbackType2">CECB General #2</option>
-                        <option value="callbackType3">CECB Order Update</option>
-                        <option value="callbackType4">CECB Return Update</option>
                         <option value="webQuote">Web Quote #1</option>
                         <option value="webQuote2">Web Quote #2</option>
                         <option value="webQuote3">Web Quote #3</option>
                         <option value="preOrder">Preorder - New Product Release</option>
                         <option value="stockNotification">Stock Notification</option>
                         <option value="stockNotificationGibson">Stock Notification - Gibson</option>
+                        <option value="stockNotificationEpiphone">Stock Notification - Epiphone</option>
                         <option value="bestPrice">Best Price</option>
                         <option value="webReturn">Web Return</option>
                         <option value="unwantedReturn">Return - Unwanted</option>
                         <option value="faultyReturn">Return - Faulty</option>
                         <option value="warrantyRepair">Warranty Repair</option>
+                        <option value="callbackType">CECB General #1</option>
+                        <option value="callbackType2">CECB General #2</option>
+                        <option value="callbackType3">CECB Order Update</option>
+                        <option value="callbackType4">CECB Return Update</option>
                     </select>
 
                     <label for="callbackSalesman">FAO:</label>
