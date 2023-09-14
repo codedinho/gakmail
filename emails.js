@@ -698,10 +698,7 @@ Please respond to this email and let me know once this is complete.
 You can reach me via email at {{salesman-email}}, or on {{salesman-phone}} if any issues.
 
 Kind regards,
-{{salesman}}
-GAK
-
-`,
+{{salesman}}`,
 
         paymentLink2: `Hi {{name}},
 
@@ -716,10 +713,7 @@ Please respond to this email and let me know once this is complete.
 You can reach me via email, or on {{salesman-phone}} if any issues.
 
 Kind regards,
-{{salesman}}
-GAK
-
-`,
+{{salesman}}`,
 
         webQuote: `Hi {{name}},
 
@@ -728,8 +722,7 @@ GAK
 If you are looking to finance the order, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
 
 Kind Regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         webQuote2: `Hi {{name}},
 
@@ -744,8 +737,7 @@ If you are interested, you can call me direct on {{salesman-phone}} between 11.3
 If not, please disregard this email and have a great week!
 
 Kind regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
 
         webQuote3: `Hi {{name}},
@@ -755,8 +747,7 @@ GAK`,
 If you were looking for finance, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
 
 Kind Regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         preOrder: `Hi {{name}},
 
@@ -773,8 +764,7 @@ Full amount: {{paymentLink}}
 Alternatively, if you would like more information or a quick chat, please do not hestitate to get in touch with me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         bestPrice: `Hi {{name}},
 
@@ -785,8 +775,7 @@ I am pleased to say the {{product}} is currently in stock. The best price I can 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime to proceed. 
 
 Kind Regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         webReturn: `Hi {{name}},
 
@@ -831,12 +820,11 @@ Also, please read the attached returns document, it is important. Once it has be
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Many thanks, 
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         faultyReturn: `Hi {{name}},
 
-I'm sorry to hear your {{product}} {{faultType}}, though I will be able to get that sorted for you.
+I'm sorry to hear your {{product}} {{faultType}}, though I will be able to get that sorted for you. {{additionalInfo}}
 
 Please reply to this email with the following:
 
@@ -853,8 +841,7 @@ The driver will bring all the relevant labels and return the parcel to us within
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         warrantyRepair: `Hi {{name}}, 
 
@@ -873,8 +860,7 @@ Please reply to this email with the following:
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind Regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         stockNotification: `Hi {{name}},
 
@@ -887,8 +873,7 @@ It's hard to guarantee stock will be free upon arrival so if you are interested 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime if you wish to hear more. 
 
 Kind regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         stockNotificationGibson: `Hi {{name}},
 
@@ -899,8 +884,7 @@ I have this on order already but unfortunately Gibson are vague with delivery da
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
     stockNotificationEpiphone: `Hi {{name}},
 
@@ -911,8 +895,7 @@ I have this on order already but unfortunately Epiphone are vague with delivery 
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
-{{salesman}}
-GAK`,
+{{salesman}}`,
 
         callbackType: `Hey {{callbackSalesman}},
 
