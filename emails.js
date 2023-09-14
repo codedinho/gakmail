@@ -271,6 +271,7 @@ function updateEmailPreview() {
     const stockDate = document.getElementById('stockDate').value;
     const salesRef = document.getElementById('salesRef').value;
     const paymentLink = document.getElementById('paymentLink').value;
+    const depositLink = document.getElementById('depositLink').value;
     const callbackType = document.getElementById('callbackType').value;
     const callbackSalesman = document.getElementById('callbackSalesman').value;
     const customerEmail = document.getElementById('customerEmail').value;
@@ -288,6 +289,9 @@ function updateEmailPreview() {
         webQuote: `👋 ${name}, GAK has sent you an offer!`,
         webQuote2: `👋 ${name}, GAK has sent you an offer!`,
         webQuote3: `👋 ${name}, GAK has sent you an offer!`,
+        paymentLink: `GAK - Payment Link - ${product}`,
+        paymentLink2: `GAK - Payment Link - ${product}`,
+        preOrder: `GAK - ${product}`,
         bestPrice: `GAK - Best Price - ${product}!`,
         webReturn: `GAK Web Return - ${returnNumber}`,
         unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
@@ -339,6 +343,7 @@ function updateEmailPreview() {
         'stockDate': stockDate,
         'salesRef': `Q-${salesmanData.abrev}-${salesRef}`, // Construct the quote reference
         'paymentLink': paymentLink,
+        'depositLink': depositLink,
         'callbackType': callbackType,
         'callbackSalesman': callbackSalesman,
         'customerEmail': customerEmail,
@@ -601,6 +606,7 @@ clearButton.addEventListener('click', function () {
     document.getElementById("salesRef").value = "";
     document.getElementById("stockDate").value = "";
     document.getElementById("paymentLink").value = "";
+    document.getElementById("depositLink").value = "";
     document.getElementById("customerPhone").value = "";
     document.getElementById("customerEmail").value = "";
     document.getElementById("faultType").value = "";
@@ -647,7 +653,7 @@ GAK
 
 `,
 
-paymentLink2: `Hi {{name}},
+        paymentLink2: `Hi {{name}},
 
 You can follow the link below to complete your purchase of the <b>{{product}}</b>, your reference is {{salesRef}}.
 
@@ -699,6 +705,24 @@ GAK`,
 If you were looking for finance, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
 
 Kind Regards,
+{{salesman}}
+GAK`,
+
+        preOrder: `Hi {{name}},
+
+{{salesman}} here from the GAK Mail Order team, I can see you were looking at the new {{product}}, online. As I'm sure you're aware, this is a brand new and has only just been launched and is already proving incredibly popular - not surprising really though! 
+
+A 10% deposit is all I would need to get the ball moving and a pre order set up, how does that sound?
+
+If you would like to get your name down and place an order, please use either of the links below to make payment and I'll get this sorted for you.
+
+Deposit: {{depositLink}}
+
+Full amount: {{paymentLink}}
+
+Alternatively, if you would like more information or a quick chat, please do not hestitate to get in touch with me on my direct line {{salesman-phone}} or email back at {{salesman-email}}
+
+Kind regards,
 {{salesman}}
 GAK`,
 
