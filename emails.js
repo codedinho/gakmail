@@ -823,7 +823,7 @@ GAK.co.uk`,
 
 I'm sorry to hear about this. We can collect the order for a full refund.
 
-Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
 
 The item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
@@ -835,7 +835,7 @@ GAK.co.uk`,
 
 I'm sorry to hear about this. We have stock available and can replace this for you.
 
-Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
 
 The item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
@@ -847,7 +847,7 @@ GAK.co.uk`,
 
 I'm sorry to hear about this. Unfortunately we do not currently have another in stock so we cannot replace this for you straight away. It might be a week or two until we see new stock come in. Would you like a replacement when stock is available?
 
-Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
 
 The faulty item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
@@ -859,7 +859,7 @@ GAK.co.uk`,
 
 I'm sorry to hear about this. As soon as the return has been processed we will contact V12 and cancel your finance agreement. 
 
-Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
 
 The goods will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
@@ -885,7 +885,7 @@ GAK.co.uk`,
 
 I'm sorry to hear about this. Lets get it back and book it in for repair under warranty with the service centre. 
 
-Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
 
 The goods will need to be boxed for transit. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
@@ -915,7 +915,7 @@ GAK.co.uk`,
 
 I'm sorry to hear about this. I'm sure our workshop can sort this out for you.
 
-Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
 
 The guitar will need to be boxed for transit. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
@@ -1125,7 +1125,7 @@ GAK.co.uk`,
 
 {{name}} is after a call back when you're free.</b> {{additionalInfo}}
 
-Please give him a shout on {{customerPhone}}.
+Please call on {{customerPhone}}.
 
 Cheers,
 {{salesman}}`,
