@@ -293,8 +293,23 @@ function updateEmailPreview() {
         paymentLink2: `GAK - Payment Link - ${product}`,
         preOrder: `GAK - ${product}`,
         bestPrice: `👋 ${name}, GAK has sent you an offer!`,
-        webReturn: `GAK Web Return - ${returnNumber}`,
+        webReturn: `GAK Return - ${returnNumber}`,
+        webReturnFaultyRefund: `GAK Return - Faulty`,
+        webReturnFaultyReplacementInStock: `GAK Return - Replacement In Stock`,
+        webReturnFaultyReplacementOutOfStock: `GAK Return - Replacement Out Of Stock`,
+        webReturnFaultyCancelFinance: `GAK Return - Finance Cancellation`,
+        webReturnFaultyRoyalMail: `GAK Return - Faulty`,
+        webReturnFaultyWorkshopRepair: `GAK Return - Workshop Repair`,
+        webReturnWarrantyRepairDPDCollection: `GAK Return - Warranty Repair Collection`,
+        webReturnFaultyWarrantyRoyalMail: `GAK Return - Warranty Repair`,
+        webUnwantedReturn: `GAK Return - ${returnNumber}`,
+        webUnwantedReturnDropoff: `GAK Return - Store Drop Off - ${returnNumber}`,
         unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
+        unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
+        contactSupportPioneer: `GAK - Tech Support - Pioneer`,
+        contactSupportPioneerOver30: `GAK - Tech Support - Pioneer`,
+        contactSupportFocusrite: `GAK - Tech Support - Focusrite`,
+        contactSupportFocusriteOver30: `GAK - Tech Support - Pioneer`,
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
@@ -303,7 +318,8 @@ function updateEmailPreview() {
         callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
         callbackType2: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
         callbackType3: `Callback for ${callbackSalesman} - Order Update - ${orderNumber}`,
-        callbackType4: `Callback for ${callbackSalesman} - Return Update - RM${returnNumber}`
+        callbackType4: `Callback for ${callbackSalesman} - Return Update - RM${returnNumber}`,
+        courierClaimDamaged: `GAK Courier Claim - Damaged Parcel`
     };
 
     
@@ -367,7 +383,8 @@ templateSelect.addEventListener("change", function () {
     // Check if the selected template matches any of the three templates
     if (
         selectedTemplate === "webReturn" ||
-        selectedTemplate === "unwantedReturn"
+        selectedTemplate === "unwantedReturn" ||
+        selectedTemplate === "webUnwantedReturn"
     ) {
         // Show the "Download PDF" button
         document.getElementById("downloadButton").style.display = "block";
@@ -698,7 +715,8 @@ Please respond to this email and let me know once this is complete.
 You can reach me via email at {{salesman-email}}, or on {{salesman-phone}} if any issues.
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         paymentLink2: `Hi {{name}},
 
@@ -713,7 +731,8 @@ Please respond to this email and let me know once this is complete.
 You can reach me via email, or on {{salesman-phone}} if any issues.
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         webQuote: `Hi {{name}},
 
@@ -722,7 +741,8 @@ Kind regards,
 If you are looking to finance the order, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
 
 Kind Regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         webQuote2: `Hi {{name}},
 
@@ -737,7 +757,8 @@ If you are interested, you can call me direct on {{salesman-phone}} between 11.3
 If not, please disregard this email and have a great week!
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
 
         webQuote3: `Hi {{name}},
@@ -747,7 +768,8 @@ Kind regards,
 If you were looking for finance, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
 
 Kind Regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         preOrder: `Hi {{name}},
 
@@ -764,7 +786,8 @@ Full amount: {{paymentLink}}
 Alternatively, if you would like more information or a quick chat, please do not hestitate to get in touch with me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         bestPrice: `Hi {{name}},
 
@@ -775,13 +798,14 @@ I am pleased to say the {{product}} is currently in stock. The best price I can 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime to proceed. 
 
 Kind Regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         webReturn: `Hi {{name}},
 
 Please send the items you wish to return back to the below address. Ideally, each item will need to be returned with all the original packaging and any other items included in the box such as a power supply or any documentation. Please ensure the package is wrapped and/or double boxed for transit to protect the manufacturers packaging against damage. Please do not write on or mark the manufacturers packaging. When appropriate we advise using a service that offers insurance, tracking and a signature upon receipt. We have no preference which courier service you use.
 
-<b>({{returnNumber}})
+RM-{{returnNumber}}
 GAK Returns
 60 Gladstone Place
 Brighton
@@ -792,7 +816,201 @@ From the date of receipt of this email you have 14 days in which to return the g
 Please be aware that if any item cannot be restocked as new we may need to reduce your refund total to reflect any depreciation in the value of the goods. Please see the terms and conditions on our website (link here www.gak.co.uk/en/terms-and-conditions) for more information.
 
 Kind Regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyRefund: `Hi {{name}},
+
+I'm sorry to hear about this. We can collect the order for a full refund.
+
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+
+The item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyReplacementInStock: `Hi {{name}},
+
+I'm sorry to hear about this. We have stock available and can replace this for you.
+
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+
+The item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyReplacementOutOfStock: `Hi {{name}},
+
+I'm sorry to hear about this. Unfortunately we do not currently have another in stock so we cannot replace this for you straight away. It might be a week or two until we see new stock come in. Would you like a replacement when stock is available?
+
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+
+The faulty item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyCancelFinance: `Hi {{name}},
+
+I'm sorry to hear about this. As soon as the return has been processed we will contact V12 and cancel your finance agreement. 
+
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+
+The goods will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyRoyalMail: `Hi {{name}},
+
+I'm sorry to hear about this. Please use the link below to get a Royal Mail free post label for your return. 
+
+www.royalmail.com/track-my-return/pick-a-retailer
+
+The goods will need to be boxed for transit. Please ensure all items originally included in the box are returned. The packaging will need to offer the same protection as the original did if the original is no longer available.
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnWarrantyRepairDPDCollection: `Hi {{name}},
+
+I'm sorry to hear about this. Lets get it back and book it in for repair under warranty with the service centre. 
+
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+
+The goods will need to be boxed for transit. The packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyWarrantyRoyalMail: `Hi {{name}},
+
+I'm sorry to hear about this!
+
+Let’s get it back and booked in for repair under warranty with the service centre. The item will need to be boxed for transit and the packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Please click on the link below to get your Royal Mail returns label. 
+
+www.royalmail.com/track-my-return/pick-a-retailer
+
+We will be in touch as soon as the repair has been completed. 
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyWorkshopRepair: `Hi {{name}},
+
+I'm sorry to hear about this. I'm sure our workshop can sort this out for you.
+
+Please let me know the best week day and address and I can book a collection with DPD for the return. The driver will bring a label with him. Unfortunately it is not possible to select a time slot when booking the collection but you will be allocated a time slot on the day. If the time slot you are given is not convenient, please follow the link on the txt or email from DPD to change the day. We do not advise taking a day off work.
+
+The guitar will need to be boxed for transit. The packaging will need to offer the same protection as the original did if the original is no longer available. 
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webUnwantedReturn: `Hi {{name}},
+        
+Please send the {{product}} you wish to return back to the below address with all the original packaging and any other items included in the box. Please ensure the goods are packaged in a way that offers equal protection to the packaging in which they were received. Please do not write on or mark the manufacturer's packaging. When appropriate we advise using a delivery service that offers insurance, tracking and a signature upon receipt. We have no preference which courier you use.
+
+RM-{{returnNumber}}
+GAK Returns
+60 Gladstone Place
+Brighton
+BN2 3QD
+
+Our returns address is not customer facing and as such cannot accept returns in person. 
+
+Please return the goods to us within 14 days. Your order will be refunded as soon as the goods are processed by our returns team. Please allow up to 7 days for your bank to clear the funds from that point. Paypal refunds are usually processed and clear on the day the transaction is refunded. 
+
+Please note! Unfortunately we cannot offer collections or reimburse the cost of returns postage for unwanted orders. If any item cannot be restocked as new we may seek to reduce your refund total to reflect any depreciation in the value of the goods. If there are any issues processing your return we will be in touch to discuss this before any final action is taken. 
+
+Please see the Returns & Refunds page on our website www.gak.co.uk/en/returns-and-refunds for more information.
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        webUnwantedReturnDropoff: `Hi {{name}},
+
+If you wish to drop off the return in store please have your returns reference RM-{{returnNumber}} ready to give to to a member of staff. All items will need to be returned with original packaging and any other items included in the box such as a power supply or any documentation.
+
+As you paid for the order online, the staff in our store might not be able to exchange or refund the goods for you. Your returned goods will be transferred to our Returns Department where the return will be processed. 
+
+Unfortunately we cannot always transfer credit from online orders to orders placed in store but our shop staff will be happy to help you with any new purchase you wish to make.
+
+Please be aware that if any item cannot be restocked as new we may need to reduce your refund total to reflect any depreciation in the value of the goods.
+
+Full terms and conditions can be found on our website www.gak.co.uk/en/returns-and-refunds.
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        contactSupportPioneer: `Hi {{name}},
+        
+I'm sorry to hear about this. If the product is faulty we can offer you a replacement. 
+
+Before we proceed with the return, it is worth contacting tech support to see if they have any solution to the issues you have reported. Sometimes updating drivers, reinstalling or adjusting user setting can fix the issue and save you the hassle of having to return the product. 
+
+www.pioneerdj.com/en-gb/support/contact/united-kingdom
+
+If they think that the product is faulty, simply reply to this email and we can arrange the return for you. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        contactSupportPioneerOver30: `Hi {{name}},
+        
+I'm sorry to hear about this. The item is covered by a manufacturers warranty so we can send it back for repair however before we do this it would be worth contacting Tech Support to see if they can trouble shoot this issue for you or offer any advice. 
+
+www.pioneerdj.com/en-gb/support/contact/united-kingdom
+
+If they think the unit is faulty they will advise returning it to us. If this turns out to be the case please get back in touch and we can arrange this. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        contactSupportFocusrite: `Hi {{name}},
+        
+I'm sorry to hear about this. 
+
+Focusrite usually like to deal with end-users direct for all warranty issues. If you open a support ticket and let them know that the goods are faulty they can arrange a repair/replacement for you. 
+
+https://support.focusrite.com/hc/en-gb/requests/new?ticket_form_id=70511
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
+        contactSupportFocusriteOver30: `Hi {{name}},
+        
+I'm sorry to hear about this. The item is covered by a manufacturers warranty so we can send it back for repair however before we do this it would be worth contacting Tech Support to see if they can trouble shoot this issue for you or offer any advice. 
+
+https://support.focusrite.com/hc/en-gb/requests/new?ticket_form_id=70511
+
+If they think the unit is faulty they will advise returning it to us. If this turns out to be the case please get back in touch and we can arrange this. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
 
         unwantedReturn: `Hi {{name}},
 
@@ -802,12 +1020,12 @@ You will need to post it back to us - we recommend these guys, they're a compari
 
 https://www.parcelmonkey.co.uk
 
-Here are the returns details for you. Your returns number is: {{returnNumber}}
+Here are the returns details for you. Your returns number is: RM-{{returnNumber}}
 
 The returns address is:
 
 <b>The Guitar, Amp, and Keyboard Centre
-Returns Dept ({{returnNumber}})
+Returns Dept (RM-{{returnNumber}})
 60 Gladstone Place
 Brighton
 East Sussex
@@ -819,8 +1037,9 @@ Also, please read the attached returns document, it is important. Once it has be
 
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
-Many thanks, 
-{{salesman}}`,
+Kind regards, 
+{{salesman}}
+GAK.co.uk`,
 
         faultyReturn: `Hi {{name}},
 
@@ -841,11 +1060,12 @@ The driver will bring all the relevant labels and return the parcel to us within
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         warrantyRepair: `Hi {{name}}, 
 
-Sorry to hear that your {{product}} has gone faulty, it is still within warranty though, so I will be able to get it sorted for you.
+Sorry to hear that your {{product}} has gone faulty, it is still within warranty though, so I will be able to get it sorted for you. {{additionalInfo}}
 
 Please reply to this email with the following:
 
@@ -860,7 +1080,8 @@ Please reply to this email with the following:
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind Regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         stockNotification: `Hi {{name}},
 
@@ -873,7 +1094,8 @@ It's hard to guarantee stock will be free upon arrival so if you are interested 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime if you wish to hear more. 
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         stockNotificationGibson: `Hi {{name}},
 
@@ -884,9 +1106,10 @@ I have this on order already but unfortunately Gibson are vague with delivery da
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
-    stockNotificationEpiphone: `Hi {{name}},
+        stockNotificationEpiphone: `Hi {{name}},
 
 You recently requested to receive stock notification on the out of stock <b>{{product}}</b> - Great choice! 
 
@@ -895,7 +1118,8 @@ I have this on order already but unfortunately Epiphone are vague with delivery 
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
-{{salesman}}`,
+{{salesman}}
+GAK.co.uk`,
 
         callbackType: `Hey {{callbackSalesman}},
 
@@ -921,9 +1145,10 @@ Cheers,
 
 Please call on {{customerPhone}} or email them at {{customerEmail}}.
 
-Return Number: <a href="https://admin.gak.co.uk/Orders/Orders?orderReference={{orderNumber}}" target="_blank">{{orderNumber}}</a>
+Return Number: RM-<a href="https://admin.gak.co.uk/StockreturnItems/Edit/{{returnNumber}}" target="_blank">{{returnNumber}}</a>
 
 Cheers,
+
 {{salesman}}`,
 
         callbackType4: `Hey {{callbackSalesman}},
@@ -936,7 +1161,23 @@ Return Number: RM-<a href="https://admin.gak.co.uk/StockreturnItems/Edit/{{retur
 
 Cheers,
 
-{{salesman}}`
+{{salesman}}`,
+
+        courierClaimDamaged: `Hi {{name}},
+        
+I'm so sorry to hear about this. Can you please send some photos of this issue to me at {{salesman-email}}. In order to claim with the courier will require photos showing the following:
+
+- Outer box
+- Inner box and/or packaging
+- Couriers shipping label
+- Damage to the item
+
+Please remember to include your order number and I'll have a look at this for you. 
+
+Kind regards,
+{{salesman}}
+GAK.co.uk`,
+
         };
 
     return templates[templateName];
