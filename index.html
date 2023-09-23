@@ -79,22 +79,26 @@
                     <!-- Template dropdown -->
                     <label for="template">Select Template:</label>                  
                     <select id="template" class="custom-dropdown">
-                        <option value="paymentLink">Payment Link #1</option>
-                        <option value="paymentLink2">Payment Link #2</option>
                         <option value="webQuote">Web Quote #1</option>
                         <option value="webQuote2">Web Quote #2</option>
                         <option value="webQuote3">Web Quote #3</option>
+                        <option value="paymentLink">Payment Link #1</option>
+                        <option value="paymentLink2">Payment Link #2</option>
                         <option value="preOrder">Preorder - New Product Release</option>
                         <option value="stockNotification">Stock Notification</option>
                         <option value="stockNotificationGibson">Stock Notification - Gibson</option>
                         <option value="stockNotificationEpiphone">Stock Notification - Epiphone</option>
-                        <option value="webReturn">Web Return Unwanted #1</option>
-                        <option value="webUnwantedReturn">Web Return Unwanted #2</option>
+                        <option value="courierClaimDamaged">Courier Claim - Damaged (Pic Request)</option>
+                        <option value="webFraudCheck">Web Cancellation - Fraud Check</option>
+                        <option value="webReturn">Web Return Unwanted - Refund #1</option>                   
                         <option value="webUnwantedReturnDropoff">Web Return Unwanted - Shop Drop</option>
-                        <option value="webReturnFaultyRefund">Web Return Faulty - Refund</option>
-                        <option value="webReturnFaultyRoyalMail">Web Return Faulty - Refund (Royal Mail Freepost)</option>
-                        <option value="webReturnFaultyReplacementInStock">Web Return Faulty - Replacement (In Stock)</option>
-                        <option value="webReturnFaultyReplacementOutOfStock">Web Return Faulty - Replacement (Out Of Stock)</option>
+                        <option value="webReturnFaultyRefund">Web Return Faulty - Refund (DPD Collection)</option>
+                        <option value="webReturnFaultyRefundRoyalMail">Web Return Faulty - Refund (Royal Mail Freepost)</option>
+                        <option value="webReturnFaultyReplacementRoyalMailInStock">Web Return Faulty - Replacement In Stock (Royal Mail Freepost)</option>
+                        <option value="webReturnFaultyReplacementRoyalMailOutOfStock">Web Return Faulty - Replacement Out Of Stock (Royal Mail Freepost)</option>
+                        <option value="webReturnFaultyReplacementInStock">Web Return Faulty - Replacement In Stock (DPD Collection)</option>
+                        <option value="webReturnFaultyReplacementOutOfStock">Web Return Faulty - Replacement Out Of Stock (DPD Collection)</option>
+                        <option value="webReturnFaultyAdvanceReplacement">Web Return Faulty - Advance Replacement (Royal Mail Freepost)</option>
                         <option value="webReturnFaultyWorkshopRepair">Web Return Faulty - Workshop Repair (DPD Collection)</option>
                         <option value="webReturnWarrantyRepairDPDCollection">Web Return Faulty - Warranty Repair (DPD Collection)</option>
                         <option value="webReturnFaultyWarrantyRoyalMail">Web Return Faulty - Warranty Repair (Royal Mail Freepost)</option>
@@ -106,7 +110,6 @@
                         <option value="faultyReturn">Return Faulty</option>
                         <option value="unwantedReturn">Return Unwanted</option>
                         <option value="warrantyRepair">Warranty Repair</option>
-                        <option value="courierClaimDamaged">CECB Return Update</option>
                         <option value="callbackType">CECB General #1</option>
                         <option value="callbackType2">CECB General #2</option>
                         <option value="callbackType3">CECB Order Update</option>
@@ -145,13 +148,13 @@
                     <label for="returnNumber">Return Number:</label>
                     <input type="text" id="returnNumber" placeholder="Enter Numbers Only">       
                     <label for="salesRef">Quote Reference:</label>
-                    <input type="text" id="salesRef" placeholder="Enter Quote Reference">       
+                    <input type="text" id="salesRef" placeholder="Enter Numbers Only">       
                     <label for="stockDate">Stock Due:</label>
-                    <input type="text" id="stockDate" placeholder="Enter Stock Date Information">
+                    <input type="text" id="stockDate" placeholder="Enter Stock Date">
                     <label for="depositLink">Deposit Link:</label>
                     <input type="text" id="depositLink" placeholder="Enter Deposit Payment Link">
                     <label for="paymentLink">Payment Link:</label>
-                    <input type="text" id="paymentLink" placeholder="Enter Payment Link">
+                    <input type="text" id="paymentLink" placeholder="Enter Payment Link URL">
                     <label for="customerPhone">Customer Phone:</label>
                     <input type="text" id="customerPhone" placeholder="Enter Customer Email Address">   
                     <label for="customerEmail">Customer Email:</label>

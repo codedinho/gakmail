@@ -53,8 +53,85 @@ const salesmenData = {
         email: "jack.breeze-lamb@gak.co.uk",
         phone: "01273 665420",
         abrev: "JBL",
-        iconPath: './assets/icons/jack-breeze-lamb.png',
+        iconPath: './assets/icons/piano-shop.png',
         altName: "Jack"
+    },
+    Roy: {
+        email: "roy@gak.co.uk",
+        phone: "01273 665425",
+        abrev: "ROY",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Roy"
+    },
+    Luke: {
+        email: "luke.brealey@gak.co.uk",
+        phone: "01273 665412",
+        abrev: "LB",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Luke"
+    },
+    Olly: {
+        email: "olly-hall@gak.co.uk",
+        phone: "01273 665412",
+        abrev: "OH",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Olly"
+    },
+    Ryan: {
+        email: "ryan.vega@gak.co.uk",
+        phone: "01273 665412",
+        abrev: "RV",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Ryan"
+    },
+    Robson: {
+        email: "robson.hawkins@gak.co.uk",
+        phone: "01273 665424",
+        abrev: "RW",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Robson"
+    },
+    Joe: {
+        email: "joe.corfield@gak.co.uk",
+        phone: "01273 665425",
+        abrev: "JC",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Ryan"
+    },
+    Louis: {
+        email: "louis.squire@gak.co.uk",
+        phone: "01273 665425",
+        abrev: "LS",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Louis"
+    },
+    Jacob: {
+        email: "jacob.andrews@gak.co.uk",
+        phone: "01273 665414",
+        abrev: "DRUMS-JA",
+        iconPath: './assets/icons/drum-shop.png',
+        altName: "Jacob"
+    },
+    Sean: {
+        email: "sean.millsopp@gak.co.uk",
+        phone: "01273 665414",
+        abrev: "-DRUMS-SM",
+        iconPath: './assets/icons/drum-shop.png',
+        altName: "Sean"
+    },
+    Bradley: {
+        email: "bradley.clarke@gak.co.uk",
+        phone: "01273 665414",
+        abrev: "-DRUMS-BC",
+        iconPath: './assets/icons/drum-shop.png',
+        altName: "Bradley"
+    },
+    Jamie: {
+        email: "jamie.barnes@gak.co.uk",
+        phone: "01273 665412",
+        abrev: "JB",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Jamie"
     },
     MailOrder: {
         email: "mailorder@gak.co.uk",
@@ -284,32 +361,35 @@ function updateEmailPreview() {
 
     // Define a mapping of template names to headlines
     const templateHeadlines = {
-        paymentLink: `GAK - Payment Link`,
-        paymentLink2: `GAK - Payment Link - ${product}`,
         webQuote: `👋 ${name}, GAK has sent you an offer!`,
         webQuote2: `👋 ${name}, GAK has sent you an offer!`,
         webQuote3: `👋 ${name}, GAK has sent you an offer!`,
-        paymentLink: `GAK - Payment Link - ${product}`,
-        paymentLink2: `GAK - Payment Link - ${product}`,
+        paymentLink: `GAK - Payment Link`,
+        paymentLink2: `GAK - Payment Link`,
         preOrder: `GAK - ${product}`,
         bestPrice: `👋 ${name}, GAK has sent you an offer!`,
-        webReturn: `GAK Return - ${returnNumber}`,
+        webFraudCheck: `GAK - Order Cancellation Update`,
+        webReturn: `GAK Return - RM${returnNumber}`,
         webReturnFaultyRefund: `GAK Return - Faulty`,
         webReturnFaultyReplacementInStock: `GAK Return - Replacement In Stock`,
         webReturnFaultyReplacementOutOfStock: `GAK Return - Replacement Out Of Stock`,
+        webReturnFaultyAdvanceReplacement: `GAK Return - Replacement Processed`,
+        webReturnFaultyRefundRoyalMail: `GAK Return - Royal Mail Freepost`,
+        webReturnFaultyReplacementRoyalMailInStock: `GAK Return - Replacement In Stock`,
+        webReturnFaultyReplacementRoyalMailOutOfStock: `GAK Return - Replacement Out Of Stock`,
         webReturnFaultyCancelFinance: `GAK Return - Finance Cancellation`,
         webReturnFaultyRoyalMail: `GAK Return - Faulty`,
         webReturnFaultyWorkshopRepair: `GAK Return - Workshop Repair`,
         webReturnWarrantyRepairDPDCollection: `GAK Return - Warranty Repair Collection`,
         webReturnFaultyWarrantyRoyalMail: `GAK Return - Warranty Repair`,
-        webUnwantedReturn: `GAK Return - ${returnNumber}`,
-        webUnwantedReturnDropoff: `GAK Return - Store Drop Off - ${returnNumber}`,
-        unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
-        unwantedReturn: `👋 ${name}, here's your GAK return details - ${returnNumber}`,
+        webUnwantedReturn: `GAK Return - RM-${returnNumber}`,
+        webUnwantedReturnDropoff: `GAK Return - Store Drop Off - RM${returnNumber}`,
+        unwantedReturn: `👋 ${name}, here's your GAK return details - RM${returnNumber}`,
+        unwantedReturn: `👋 ${name}, here's your GAK return details - RM${returnNumber}`,
         contactSupportPioneer: `GAK - Tech Support - Pioneer`,
         contactSupportPioneerOver30: `GAK - Tech Support - Pioneer`,
         contactSupportFocusrite: `GAK - Tech Support - Focusrite`,
-        contactSupportFocusriteOver30: `GAK - Tech Support - Pioneer`,
+        contactSupportFocusriteOver30: `GAK - Tech Support - Focusrite`,
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
@@ -715,6 +795,7 @@ Please respond to this email and let me know once this is complete.
 You can reach me via email at {{salesman-email}}, or on {{salesman-phone}} if any issues.
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -731,6 +812,7 @@ Please respond to this email and let me know once this is complete.
 You can reach me via email, or on {{salesman-phone}} if any issues.
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -741,6 +823,7 @@ GAK.co.uk`,
 If you are looking to finance the order, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
 
 Kind Regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -757,17 +840,24 @@ If you are interested, you can call me direct on {{salesman-phone}} between 11.3
 If not, please disregard this email and have a great week!
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
-
         webQuote3: `Hi {{name}},
 
-{{salesman}} here from the GAK Mail Order team, I can see you were interested in the {{product}} online. I am pleased to say that not only do I have it available in stock but if you ordered over the phone or via email with me I would be able to look into either offering a deal on the price or including some extra bits depending on what is available. If you would like to order or find out more please call me on {{salesman-phone}} or email back via {{salesman-email}} for a quote on the price.
+{{salesman}} here from GAK, I can see you've shown some interest in the {{product}} online. Great choice!
 
-If you were looking for finance, then the web price is usually the best I can do however, I do have some extra options that may not be available on the website.
+I am pleased to say that this is in stock and ready for shipping. I have checked our pricing and we may even have some room for either a deal on the price or some free accessories depending on what is available. How would that sound?
 
-Kind Regards,
+If you are looking to finance the order, then the web price is usually the best I can do however, I do sometimes have some extra options that may not be available on the website.
+
+Alternatively, if you are still considering options right now, please feel free to send any questions my way and I'll be happy to help. 
+
+For more information, you can reach me directly on {{salesman-phone}} or email back anytime via {{salesman-email}}.
+
+Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -786,6 +876,7 @@ Full amount: {{paymentLink}}
 Alternatively, if you would like more information or a quick chat, please do not hestitate to get in touch with me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -798,6 +889,7 @@ I am pleased to say the {{product}} is currently in stock. The best price I can 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime to proceed. 
 
 Kind Regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -816,6 +908,7 @@ From the date of receipt of this email you have 14 days in which to return the g
 Please be aware that if any item cannot be restocked as new we may need to reduce your refund total to reflect any depreciation in the value of the goods. Please see the terms and conditions on our website (link here www.gak.co.uk/en/terms-and-conditions) for more information.
 
 Kind Regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -828,6 +921,7 @@ Please let me know the best week day and address and I can book a collection wit
 The item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -840,6 +934,7 @@ Please let me know the best week day and address and I can book a collection wit
 The item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -852,6 +947,7 @@ Please let me know the best week day and address and I can book a collection wit
 The faulty item will need to be boxed for transit. Please ensure all items originally included in the box are also returned. The packaging will need to offer the same protection as the original did if the original is no longer available. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -868,9 +964,39 @@ Kind regards,
 {{salesman}}
 GAK.co.uk`,
 
-        webReturnFaultyRoyalMail: `Hi {{name}},
+        webReturnFaultyRefundRoyalMail: `Hi {{name}},
 
 I'm sorry to hear about this. Please use the link below to get a Royal Mail free post label for your return. 
+
+www.royalmail.com/track-my-return/pick-a-retailer
+
+The goods will need to be boxed for transit. Please ensure all items originally included in the box are returned. The packaging will need to offer the same protection as the original did if the original is no longer available.
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyReplacementRoyalMailInStock: `Hi {{name}},
+
+I'm sorry to hear about this. We have stock available and can replace this for you. Please use the link below to get a Royal Mail free post label for your return.
+
+www.royalmail.com/track-my-return/pick-a-retailer
+
+The goods will need to be boxed for transit. Please ensure all items originally included in the box are returned. 
+
+The packaging will need to offer the same protection as the original did if the original is no longer available.
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webReturnFaultyReplacementRoyalMailOutOfStock: `Hi {{name}},
+
+I'm sorry to hear about this. Unfortunately we do not currently have another in stock so we cannot replace this for you straight away. It might be a week or two until we see new stock come in. Would you like a replacement when stock is available?
+
+Please use the link below to get a Royal Mail free post label for your return.
 
 www.royalmail.com/track-my-return/pick-a-retailer
 
@@ -943,6 +1069,7 @@ Please note! Unfortunately we cannot offer collections or reimburse the cost of 
 Please see the Returns & Refunds page on our website www.gak.co.uk/en/returns-and-refunds for more information.
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -959,8 +1086,36 @@ Please be aware that if any item cannot be restocked as new we may need to reduc
 Full terms and conditions can be found on our website www.gak.co.uk/en/returns-and-refunds.
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
+
+        webReturnFaultyAdvanceReplacement: `Hi {{name}},
+
+I'm sorry to hear about this. A replacement should be with you tomorrow. Please use the link below to get a Royal Mail free post label for your return. 
+
+www.royalmail.com/track-my-return/pick-a-retailer
+
+The goods will need to be boxed for transit. Please ensure all items originally included in the box are returned. The packaging will need to offer the same protection as the original did if the original is no longer available.
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        webFraudCheck: `Hi {{name}},
+
+Unfortunately we cannot process this order for you. The payment has been successful, but the security information cannot be verified as the card used is not 3D Secure enrolled. 
+
+The order will be cancelled and no funds will be processed.
+
+Your bank have already preauthorised the funds but the transaction will not be completed. The payment has been reversed and the funds will usually clear back to your available balance within 3-5 working days. If you still require the goods, please replace the order and use a 3D Secure enrolled card or an alternative method of payment.
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
 
         contactSupportPioneer: `Hi {{name}},
         
@@ -973,6 +1128,7 @@ www.pioneerdj.com/en-gb/support/contact/united-kingdom
 If they think that the product is faulty, simply reply to this email and we can arrange the return for you. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -985,6 +1141,7 @@ www.pioneerdj.com/en-gb/support/contact/united-kingdom
 If they think the unit is faulty they will advise returning it to us. If this turns out to be the case please get back in touch and we can arrange this. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -997,6 +1154,7 @@ Focusrite usually like to deal with end-users direct for all warranty issues. If
 https://support.focusrite.com/hc/en-gb/requests/new?ticket_form_id=70511
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1009,6 +1167,7 @@ https://support.focusrite.com/hc/en-gb/requests/new?ticket_form_id=70511
 If they think the unit is faulty they will advise returning it to us. If this turns out to be the case please get back in touch and we can arrange this. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1038,6 +1197,7 @@ Also, please read the attached returns document, it is important. Once it has be
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards, 
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1060,6 +1220,7 @@ The driver will bring all the relevant labels and return the parcel to us within
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1080,6 +1241,7 @@ Please reply to this email with the following:
 If you have any issues you can reach me on my direct line {{salesman-phone}} or email back at {{salesman-email}}.
 
 Kind Regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1094,6 +1256,7 @@ It's hard to guarantee stock will be free upon arrival so if you are interested 
 Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime if you wish to hear more. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1106,6 +1269,7 @@ I have this on order already but unfortunately Gibson are vague with delivery da
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1118,6 +1282,7 @@ I have this on order already but unfortunately Epiphone are vague with delivery 
 To place a preorder please call me on {{salesman-phone}} below or reply to this email and quote ref {{salesRef}}
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
@@ -1175,6 +1340,7 @@ I'm so sorry to hear about this. Can you please send some photos of this issue t
 Please remember to include your order number and I'll have a look at this for you. 
 
 Kind regards,
+
 {{salesman}}
 GAK.co.uk`,
 
