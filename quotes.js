@@ -253,11 +253,6 @@ quoteBubbleContainer.addEventListener("mousedown", function (event) {
     }
 });
 
-
-
-
-
-
 // Function to remove a quote bubble from the display and local storage
 function removeQuoteBubble(quoteBubble) {
     // Remove the bubble from the display
@@ -275,10 +270,6 @@ function removeFromLocalStorage(quote) {
     // Store the updated array back in local storage
     localStorage.setItem("salesQuotes", JSON.stringify(updatedQuotes));
 }
-
-
-
-
 
 // Call the displayQuotesOnLoad function when the page loads
 window.addEventListener("load", displayQuotesOnLoad);

@@ -59,72 +59,86 @@ const salesmenData = {
     Roy: {
         email: "roy@gak.co.uk",
         phone: "01273 665425",
-        abrev: "ROY",
+        abrev: "SH-ROY",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Roy"
     },
     Luke: {
         email: "luke.brealey@gak.co.uk",
         phone: "01273 665412",
-        abrev: "LB",
+        abrev: "GTR-LB",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Luke"
     },
     Olly: {
         email: "olly-hall@gak.co.uk",
         phone: "01273 665412",
-        abrev: "OH",
+        abrev: "GTR-OH",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Olly"
+    },
+    Dave: {
+        email: "dave.williams@gak.co.uk",
+        phone: "01273 665412",
+        abrev: "GTR-DW",
+        iconPath: './assets/icons/guitar-shop.png',
+        altName: "Dave"
     },
     Ryan: {
         email: "ryan.vega@gak.co.uk",
         phone: "01273 665412",
-        abrev: "RV",
+        abrev: "GTR-RV",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Ryan"
     },
     Robson: {
         email: "robson.hawkins@gak.co.uk",
         phone: "01273 665424",
-        abrev: "RW",
+        abrev: "GTR-RW",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Robson"
     },
     Joe: {
         email: "joe.corfield@gak.co.uk",
         phone: "01273 665425",
-        abrev: "JC",
+        abrev: "SH-JC",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Ryan"
     },
     Louis: {
         email: "louis.squire@gak.co.uk",
         phone: "01273 665425",
-        abrev: "LS",
+        abrev: "SH-LS",
         iconPath: './assets/icons/guitar-shop.png',
         altName: "Louis"
     },
     Jacob: {
         email: "jacob.andrews@gak.co.uk",
         phone: "01273 665414",
-        abrev: "DRUMS-JA",
+        abrev: "DS-JA",
         iconPath: './assets/icons/drum-shop.png',
         altName: "Jacob"
     },
     Sean: {
         email: "sean.millsopp@gak.co.uk",
         phone: "01273 665414",
-        abrev: "-DRUMS-SM",
+        abrev: "DS-SM",
         iconPath: './assets/icons/drum-shop.png',
         altName: "Sean"
     },
     Bradley: {
         email: "bradley.clarke@gak.co.uk",
         phone: "01273 665414",
-        abrev: "-DRUMS-BC",
+        abrev: "DRUMS-BC",
         iconPath: './assets/icons/drum-shop.png',
         altName: "Bradley"
+    },
+    Gino: {
+        email: "gino.sanchez@gak.co.uk",
+        phone: "01273 665413",
+        abrev: "PRO-GS",
+        iconPath: './assets/icons/proaudio-shop.png',
+        altName: "Gino"
     },
     Jamie: {
         email: "jamie.barnes@gak.co.uk",
@@ -393,6 +407,7 @@ function updateEmailPreview() {
         faultyReturn: `GAK Return - ${product}`,
         warrantyRepair: `GAK Warranty Repair - ${product}`,
         stockNotification: `GAK Stock Notification - ${product}`,
+        stockNotification2: `GAK Stock Notification - ${product}`,
         stockNotificationGibson: `GAK Stock Notification - ${product}`,
         stockNotificationEpiphone: `GAK Stock Notification - ${product}`,
         callbackType: `Callback for ${callbackSalesman} - ${name} - ${customerPhone}`,
@@ -1253,7 +1268,28 @@ I am pleased to say that we are hoping to see stock around {{stockDate}}.
 
 It's hard to guarantee stock will be free upon arrival so if you are interested a 10% deposit will secure one for you. 
 
-Just give me a call on {{salesman-phone}} quoting reference {{salesRef}} or email back anytime if you wish to hear more. 
+For more information about this, you can reach me direct on {{salesman-phone}} or email back anytime. 
+
+Kind regards,
+
+{{salesman}}
+GAK.co.uk`,
+
+        stockNotification2: `Hi {{name}},
+
+{{salesman}} here from GAK. I noticed you have requested a stock notification on the {{product}}.
+
+All being equal with our supplier, we are hoping to see stock around {{stockDate}}. {{additionalInfo}}
+
+It's hard to guarantee stock will still be free upon arrival so if you are interested a 10% deposit will secure one for you. 
+
+If you would like to place an order, please use either of the links below to make payment and I'll get make sure you get one from the first batch.
+
+Deposit: {{depositLink}}
+
+Full amount: {{paymentLink}}
+
+You can reach me on {{salesman-phone}} or email back anytime if you wish to hear more. 
 
 Kind regards,
 
