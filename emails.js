@@ -1283,7 +1283,7 @@ All being equal with our supplier, we are hoping to see stock around {{stockDate
 
 It's hard to guarantee stock will still be free upon arrival so if you are interested a 10% deposit will secure one for you. 
 
-If you would like to place an order, please use either of the links below to make payment and I'll get make sure you get one from the first batch.
+If you would like to place an order, please use either of the links below to make payment and I'll make sure you get one from the first batch.
 
 Deposit: {{depositLink}}
 
