@@ -380,6 +380,7 @@ function updateEmailPreview() {
         webQuote3: `👋 ${name}, GAK has sent you an offer!`,
         paymentLink: `GAK - Payment Link`,
         paymentLink2: `GAK - Payment Link`,
+        paymentLinkAdditionalInfo: `Secure Trading Additional Information`,
         preOrder: `GAK - ${product}`,
         bestPrice: `👋 ${name}, GAK has sent you an offer!`,
         webFraudCheck: `GAK - Order Cancellation Update`,
@@ -831,6 +832,10 @@ Kind regards,
 {{salesman}}
 GAK.co.uk`,
 
+        paymentLinkAdditionalInfo: 
+    
+`<b>Additional information:</b> Here is the 3D secure Verified by Visa and Mastercard Secure, GAK payment link, please follow the online instructions and make sure that the delivery address you select matches where you would like me to send the goods. Once payment has been completed make a note of the Transaction Ref and Auth code and EITHER reply to this email or call me back on {{salesman-phone}} and I will get the order completed for you. Please note that Amex is not available for this transaction. If you are looking at using the PayPal Credit option, select PayPal as the payment method and log into your PayPal account, if you are not sure how to apply or if it is available for you, please contact PayPal. Kind Regards, {{salesman}}, {{salesman-phone}}, {{salesman-email}}.`,
+
         webQuote: `Hi {{name}},
 
         {{salesman}} here from GAK, I can see you were interested in the {{product}} online. I am pleased to say that not only do I have it available in stock but if you ordered over the phone or via email with me I would be able to look into either offering a deal on the price or including some extra bits depending on what is available. If you would like to order or find out more please call me on {{salesman-phone}} or email back via {{salesman-email}} for a quote on the price.
@@ -880,7 +885,7 @@ GAK.co.uk`,
 
 {{salesman}} here from the GAK Mail Order team, I can see you were looking at the new {{product}}, online. As I'm sure you're aware, this is a brand new and has only just been launched and is already proving incredibly popular - not surprising really though! 
 
-All being equal, we are hoping to see stock around {{stockDate}}. A 10% deposit is all I would need to get the ball moving and a pre order set up, how does that sound?
+All being equal, we are hoping to see stock {{stockDate}}. A 10% deposit is all I would need to get the ball moving and a pre order set up, how does that sound?
 
 If you would like to get your name down and place an order, please use either of the links below to make payment and I'll get this sorted for you.
 
@@ -1264,7 +1269,7 @@ GAK.co.uk`,
 
 {{salesman}} here from GAK. I noticed you have requested a stock notification on the {{product}}.
 
-I am pleased to say that we are hoping to see stock around {{stockDate}}.
+I am pleased to say that we are hoping to see stock {{stockDate}}.
 
 It's hard to guarantee stock will be free upon arrival so if you are interested a 10% deposit will secure one for you. 
 
@@ -1279,7 +1284,7 @@ GAK.co.uk`,
 
 {{salesman}} here from GAK. I noticed you have requested a stock notification on the {{product}}.
 
-All being equal with our supplier, we are hoping to see stock around {{stockDate}}. {{additionalInfo}}
+All being equal with our supplier, we are hoping to see stock {{stockDate}}. {{additionalInfo}}
 
 It's hard to guarantee stock will still be free upon arrival so if you are interested a 10% deposit will secure one for you. 
 
